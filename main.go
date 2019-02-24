@@ -3,22 +3,22 @@ package main
 import (
 	"fmt"
 
+	"github.com/fforootd/calc/models"
+
 	"github.com/fforootd/calc/utils"
 )
 
 func main() {
 	// Set some Testparams
-	//h := models.Head{Mass: 111.11111}
-	//p := models.PolyamineUnit{Mass: 222.22222}
-	//t := models.Tail{Mass: 555.55555}
-
 	head := 111.11111
 	poly := 222.22222
 	tail := 555.55555
 
-	frag := utils.CallCulateFragements(head, poly, tail)
+	frag := models.Fragment(utils.CallCulateFragements(head, poly, tail))
+	total := utils.CalcTotal(head, poly, tail)
 
-	fmt.Println(frag)
+	fmt.Println("fragments: ", frag)
+	fmt.Println("total mass: ", total)
 	/*
 		total := utils.CalcTotal()
 		fmt.Println("hop: ", total)
