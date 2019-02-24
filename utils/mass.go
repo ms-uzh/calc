@@ -6,6 +6,7 @@ import (
 
 const c1 = 1.0078250
 
+//CalcTotal calculates the total mass
 func CalcTotal(input ...float64) float64 {
 	total := 0.0
 	for _, value := range input {
@@ -14,6 +15,7 @@ func CalcTotal(input ...float64) float64 {
 	return total
 }
 
+//CallCulateFragements offloads the generation of the fragments
 func CallCulateFragements(head, poly, tail float64) models.Fragment {
 	a := CallculateA(head, poly)
 	b := CallculateB(head, poly)
@@ -28,6 +30,7 @@ func CallCulateFragements(head, poly, tail float64) models.Fragment {
 	return x
 }
 
+//CalcPreCursorOne
 //If no Object is quanterary add c1 to the mass
 //If one Object is "" do nothing, return total mass
 //If more than one "" return null
