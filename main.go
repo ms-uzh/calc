@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/fforootd/calc/models"
-
 	"github.com/fforootd/calc/utils"
 )
 
@@ -14,10 +12,10 @@ func main() {
 	poly := 222.22222
 	tail := 555.55555
 
-	frag := models.Fragment(utils.CallCulateFragements(head, poly, tail))
+	frag := utils.CallCulateFragements(head, poly, tail)
 	total := utils.CalcTotal(head, poly, tail)
 
-	fmt.Println("fragments: ", frag)
+	fmt.Printf("%+v\n", frag)
 	fmt.Println("total mass: ", total)
 	/*
 		total := utils.CalcTotal()
