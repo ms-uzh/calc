@@ -10,8 +10,7 @@ func CallculateA(head, poly float64) float64 {
 }
 
 func CallculateB(head, poly float64) float64 {
-	b1 := head + poly
-	b := b1 - c2
+	b := head + poly - c2
 	return b
 }
 
