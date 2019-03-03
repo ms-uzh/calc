@@ -1,27 +1,34 @@
 package models
 
-type Molecule struct {
-	name string
-}
-
 type Head struct {
-	Name string
-	Mass float64
-	HDX  int
+	Name       string
+	Formula    []string
+	Mass       float64
+	HDX        uint
+	Quaternary int
 }
 
-type PolyamineUnit struct {
-	Name            string
-	Mass            float64
-	Quaternaryamine bool
-	HDX             int
+type Polyamine struct {
+	Name       string
+	Formula    []string
+	Mass       float64
+	HDX        uint
+	Sub        Sub
+	Quaternary int
 }
 
 type Tail struct {
-	Name            string
-	Mass            float64
-	Quaternaryamine bool
-	HDX             int
+	Name       string
+	Formula    []string
+	Mass       float64
+	HDX        uint
+	Sub        Sub
+	Quaternary int
+}
+
+type Sub struct {
+	Name string
+	Mass float64
 }
 
 type Result struct {

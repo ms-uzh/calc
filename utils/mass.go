@@ -36,7 +36,7 @@ func CallCulateFragements(head, poly, tail float64) models.Fragment {
 //If more than one "" return null
 func CalcPreCursorOne(input ...float64) float64 {
 
-	return x
+	return 0
 }
 
 //if no object is quartenary add twice c1
@@ -46,13 +46,13 @@ func CalcPreCursorOne(input ...float64) float64 {
 //
 //always half the return value
 func CalcPreCursorTwo(input ...float64) float64 {
-	y := 12 // TODO implement
-	x := y / 2
-	return x
+	// y := 12 // TODO implement
+	// x := y / 2
+	return 0
 }
 
 //add up HDX values
 func CalcHDX(input ...float64) float64 {
 
-	return x
+	return 0
 }
