@@ -17,16 +17,22 @@ type Config struct {
 func ReadConfigs(headPath, polyaminePath, tailPath string) *Config {
 	config := new(Config)
 
-	err := readObject(headPath, &config.Heads)
-	logging.Log("CONF-aNzV4").OnError(err).WithField("path", headPath).Panic("read head configuration failed")
-	err = readObject(polyaminePath, &config.Polynamines)
-	logging.Log("CONF-c9weA").OnError(err).WithField("path", polyaminePath).Panic("read polyamine configuration failed")
-	err = readObject(tailPath, &config.Tails)
-	logging.Log("CONF-qVvHO").OnError(err).WithField("path", tailPath).Panic("read tail configuration failed")
+	readObject(headPath, &config.Heads)
+	readObject(polyaminePath, &config.Polynamines)
+	readObject(tailPath, &config.Tails)
+
+	if len(config.Heads) == 0 || len(config.Polynamines) == 0 || len(config.Tails) == 0 {
+		logging.Log("CONF-1NL9X").
+			WithField("heads", len(config.Heads)).
+			WithField("polyamines", len(config.Polynamines)).
+			WithField("tail", len(config.Tails)).
+			Panic("no objects configured")
+	}
 
 	return config
 }
 
-func readObject(path string, object interface{}) error {
-	return yaml.ReadConfig(object, path)
+func readObject(path string, object interface{}) {
+	err := yaml.ReadConfig(object, path)
+	logging.Log("CONF-aNzV4").OnError(err).WithField("path", path).Panic("read configuration failed")
 }
