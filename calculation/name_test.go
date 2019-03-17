@@ -1,4 +1,4 @@
-package main
+package calculation
 
 import (
 	"fmt"
@@ -35,18 +35,18 @@ func TestExampleName1(t *testing.T) {
 		Quaternary: 0,
 	}
 
-	assert.Equal(t, "4-OH-IndAc3(OH)34", generateName(head, tail, pa1, pa2, pa3))
+	assert.Equal(t, "4-OH-IndAc3(OH)34", CalculateName(head, tail, pa1, pa2, pa3))
 }
 
 func TestQuaternaryZero(t *testing.T) {
-	assert.Equal(t, "", generateQuaternaryName(0))
+	assert.Equal(t, "", CalculateQuaternaryName(0))
 }
 
 func TestQuaternaryOne(t *testing.T) {
-	assert.Equal(t, "+", generateQuaternaryName(1))
+	assert.Equal(t, "+", CalculateQuaternaryName(1))
 }
 
 func TestQuaternaryMulti(t *testing.T) {
 	quaternary := 4
-	assert.Equal(t, fmt.Sprint(quaternary, "+"), generateQuaternaryName(quaternary))
+	assert.Equal(t, fmt.Sprint(quaternary, "+"), CalculateQuaternaryName(quaternary))
 }

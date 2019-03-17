@@ -1,11 +1,10 @@
-package main
+package calculation
 
 import (
 	"fmt"
 	"regexp"
 	"sort"
 	"strconv"
-	"strings"
 
 	"github.com/pkg/errors"
 
@@ -29,48 +28,48 @@ func (f Formulas) set(formula *Formula) Formulas {
 	for _, existingFormula := range f {
 		if existingFormula.name == formula.name {
 			existingFormula.count += formula.count
+			return f
 		}
-		return f
 	}
 	f = append(f, formula)
 	return f
 }
 
-func (f Formulas) join() string {
+func (f Formulas) join() []string {
 	formulas := []string{}
 	sort.Sort(f)
 	for _, formula := range f {
 		formulas = append(formulas, fmt.Sprintf("%s%v", formula.name, formula.count))
 	}
-	return strings.Join(formulas, "")
+	return formulas
 }
 
-func generateFormula(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (formula string, err error) {
+func CalculateFormula(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (formula []string, err error) {
 	formulas := Formulas{}
-	formulas, err = caclulateFormulas(formulas, head.Formula...)
+	formulas, err = CaclulateFormulas(formulas, head.Formula...)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	for _, polyamine := range polyamines {
-		formulas, err = caclulateFormulas(formulas, polyamine.Formula...)
+		formulas, err = CaclulateFormulas(formulas, polyamine.Formula...)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 	}
-	formulas, err = caclulateFormulas(formulas, tail.Formula...)
+	formulas, err = CaclulateFormulas(formulas, tail.Formula...)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	return formulas.join(), nil
 }
 
-func caclulateFormulas(existingFormulas Formulas, formulas ...string) (Formulas, error) {
+func CaclulateFormulas(existingFormulas Formulas, formulas ...string) (Formulas, error) {
 	for _, formulaText := range formulas {
 		formula, err := createFormula(formulaText)
 		if err != nil {
 			return nil, err
 		}
-		existingFormulas.set(formula)
+		existingFormulas = existingFormulas.set(formula)
 	}
 	return existingFormulas, nil
 }

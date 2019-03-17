@@ -1,4 +1,4 @@
-package main
+package calculation
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/fforootd/calc/models"
 )
 
-func generateName(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (name string) {
+func CalculateName(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (name string) {
 	quaternary := calculateQuaternary(head, tail, polyamines...)
 
 	name = head.Name
@@ -14,12 +14,12 @@ func generateName(head models.Head, tail models.Tail, polyamines ...models.Polya
 		name += polyamine.Name
 	}
 	name += tail.Name
-	name += generateQuaternaryName(quaternary)
+	name += CalculateQuaternaryName(quaternary)
 
 	return name
 }
 
-func generateQuaternaryName(quaternary int) string {
+func CalculateQuaternaryName(quaternary int) string {
 	if quaternary == 0 {
 		return ""
 	}

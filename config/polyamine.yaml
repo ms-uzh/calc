@@ -1,3 +1,4 @@
+- Name: '-'
 - Name: '3'
   Formula: ['C3', 'H7', 'N']
   Mass: 57.05785
@@ -12,7 +13,7 @@
   HDX: 1
   Quaternary: 0
 - Name: '4'
-  Formula: ['C4', 'H9', N']
+  Formula: ['C4', 'H9', 'N']
   Mass: 71.07350
   HDX: 1
   Quaternary: 0

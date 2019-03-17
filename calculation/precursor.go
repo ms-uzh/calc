@@ -1,11 +1,11 @@
-package main
+package calculation
 
 import (
 	"github.com/fforootd/calc/models"
 )
 
 func calculatePrecursor1(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
-	precursor := generateMass(head, tail, polyamines...)
+	precursor := calculateMass(head, tail, polyamines...)
 
 	quaternary := calculateQuaternary(head, tail, polyamines...)
 	correcture := precursor1Correcture(quaternary)
@@ -19,7 +19,7 @@ func calculatePrecursor1(head models.Head, tail models.Tail, polyamines ...model
 }
 
 func calculatePrecursor2(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
-	precursor := generateMass(head, tail, polyamines...)
+	precursor := calculateMass(head, tail, polyamines...)
 
 	quaternary := calculateQuaternary(head, tail, polyamines...)
 	correcture := precursor2Correcture(quaternary)
@@ -34,10 +34,10 @@ func calculatePrecursor2(head models.Head, tail models.Tail, polyamines ...model
 }
 
 func calculatePrecursorHDX1(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
-	precursor := generateMass(head, tail, polyamines...)
-
+	precursor := calculateMass(head, tail, polyamines...)
 	quaternary := calculateQuaternary(head, tail, polyamines...)
 	hdx := calculateHDX(head, tail, polyamines...)
+
 	correcture := precursorHDX1Correcture(quaternary, float64(hdx))
 	if correcture == -1 {
 		return -1
@@ -50,10 +50,10 @@ func calculatePrecursorHDX1(head models.Head, tail models.Tail, polyamines ...mo
 }
 
 func calculatePrecursorHDX2(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
-	precursor := generateMass(head, tail, polyamines...)
-
+	precursor := calculateMass(head, tail, polyamines...)
 	quaternary := calculateQuaternary(head, tail, polyamines...)
 	hdx := calculateHDX(head, tail, polyamines...)
+
 	correcture := precursorHDX2Correcture(quaternary, float64(hdx))
 	if correcture == -1 {
 		return -1

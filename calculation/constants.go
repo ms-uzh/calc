@@ -1,4 +1,4 @@
-package main
+package calculation
 
 const (
 	h   = float64(1.00782503223)

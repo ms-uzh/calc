@@ -1,0 +1,36 @@
+{{define "choose"}}
+<article id="choose">
+    <h2>Choose</h2>
+    <form action="{{getCalcAddress}}" method="POST">
+        <section id="head">
+            <p>Head</p>
+            <select name="head">
+                {{range .Heads}}
+                    <option value={{.Name}}>{{.Name}}</option>
+                {{end}}
+            </select>
+        </section>
+        <section id="polyamineUnits">
+            <p>Polyamine Units</p>
+            {{range .Polyamines}}
+            <select name="polyamineUnits">
+                {{range .}}
+                    <option value={{.Name}}>{{.Name}}</option>
+                {{end}}
+            </select>
+            {{ end }}
+        </section>
+        <section id="tail">
+            <p>Tail</p>
+            <select name="tail">
+                {{range .Tails}}
+                    <option value={{.Name}}>{{.Name}}</option>
+                {{end}}
+            </select>
+        </section>
+        <section id="submit">
+            <button type="submit">Calculate</button>
+        </section>
+    </form>
+</article>
+{{end}}

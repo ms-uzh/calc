@@ -1,0 +1,17 @@
+{{define "calculation"}}
+<article id="calculation">
+    <h2>Calculated Parameters</h2>
+    <section id="genericName">
+        <p>Generic Name</p>
+        <p>{{.GenericName}}</p>
+    </section>
+    <section id="chemicalFormula">
+        <p>Chemical Formula</p>
+        <p>{{joinChemicalFormula .ChemicalFormula}}</p>
+    </section>
+    <section id="molecularMass">
+        <p>Molecular Mass</p>
+        {{.MolecularMass}}
+    </section>
+</article>
+{{end}}

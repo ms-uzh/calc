@@ -1,4 +1,4 @@
-package main
+package calculation
 
 import "github.com/fforootd/calc/models"
 

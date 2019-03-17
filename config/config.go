@@ -9,17 +9,25 @@ import (
 )
 
 type Config struct {
-	Heads       []models.Head
-	Polynamines []models.Polyamine
-	Tails       []models.Tail
+	Heads       models.Heads
+	Polynamines models.Polyamines
+	Tails       models.Tails
+	App         App
 }
 
-func ReadConfigs(headPath, polyaminePath, tailPath string) *Config {
+type App struct {
+	MaxPolyamineSelectors uint
+	URL                   string
+	Port                  string
+}
+
+func ReadConfigs(headPath, polyaminePath, tailPath, appConfigPath string) *Config {
 	config := new(Config)
 
 	readObject(headPath, &config.Heads)
 	readObject(polyaminePath, &config.Polynamines)
 	readObject(tailPath, &config.Tails)
+	readObject(appConfigPath, &config.App)
 
 	if len(config.Heads) == 0 || len(config.Polynamines) == 0 || len(config.Tails) == 0 {
 		logging.Log("CONF-1NL9X").
