@@ -13,5 +13,29 @@
         <p>Molecular Mass</p>
         {{.MolecularMass}}
     </section>
+    <section id="calculations">
+        <table>
+            <tr>
+                <th>a</th>
+                <th>b</th> 
+                <th>c</th>
+                <th>t<sub>a</sub></th>
+                <th>z</th>
+                <th>y</th> 
+                <th>t<sub>z</sub></th>
+            </tr>
+            {{range .Fragments}}
+            <tr>
+              <td>{{.A}}</td>
+              <td>{{.B}}</td> 
+              <td>{{.C}}</td>
+              <td>{{.Ta}}</td>
+              <td>{{.Z}}</td>
+              <td>{{.Y}}</td>
+              <td>{{.Tz}}</td>
+            </tr>
+            {{end}}
+          </table>
+    </section>
 </article>
 {{end}}

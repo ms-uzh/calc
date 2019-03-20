@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	calc "github.com/fforootd/calc/calculation"
+	"github.com/fforootd/calc/calculation/fragment"
 
 	"github.com/fforootd/calc/models"
 
@@ -13,15 +14,20 @@ import (
 
 	"github.com/fforootd/calc/config"
 
+	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
 )
 
 var decoder = schema.NewDecoder()
 
-func (s *Server) ListenAndServce() {
-	http.Handle("/calc", s.handle())
-	http.Handle("/", s.handle())
-	if err := http.ListenAndServe(":"+s.conf.App.Port, nil); err != nil {
+func (s *Server) ListenAndServe() {
+	routeHandler := mux.NewRouter()
+	routeHandler.PathPrefix("/resources").Handler(s.handleResources())
+	routeHandler.Handle("/calc", s.handle())
+	s.handler = routeHandler
+	// http.Handle("/", s.handle())
+
+	if err := http.ListenAndServe(":"+s.conf.App.Port, s.handler); err != nil {
 		log.Fatal("oups: ", err)
 	}
 }
@@ -52,12 +58,6 @@ func NewServer(conf *config.Config) *Server {
 	return server
 }
 
-type Post struct {
-	Head           string   `schema:"head"`
-	PolyamineUnits []string `schema:"polyamineUnits"`
-	Tail           string   `schema:"tail"`
-}
-
 func (s *Server) handle() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var data *PageData
@@ -82,20 +82,22 @@ func (s *Server) handlePost(r *http.Request) *PageData {
 	if err := r.ParseForm(); err != nil {
 		log.Fatal("HTML-TzPhd: ", err)
 	}
-	var formPost Post
+	var chosenInput Chosen
 
-	err := decoder.Decode(&formPost, r.PostForm)
+	err := decoder.Decode(&chosenInput, r.PostForm)
 	logging.Log("HTML-nYlSm").OnError(err).Warn("decode failed")
 
-	head := s.data.Heads.GetByName(formPost.Head)
-	tail := s.data.Tails.GetByName(formPost.Tail)
-	polyamines := s.getPolyamines(formPost.PolyamineUnits...)
+	head := s.data.Heads.GetByName(chosenInput.Head)
+	tail := s.data.Tails.GetByName(chosenInput.Tail)
+	polyamines := s.getPolyamines(chosenInput.PolyamineUnits...)
 
 	data := new(PageData)
 	*data = *s.data
 	data.Calculation = &Calculation{}
 	data.Calculation.GenericName = calc.CalculateName(head, tail, polyamines...)
 	data.Calculation.ChemicalFormula, _ = calc.CalculateFormula(head, tail, polyamines...)
+	data.Calculation.MolecularMass = calc.CalculateMass(head, tail, polyamines...)
+	data.Calculation.Fragments = fragment.CalculateFragments(head, tail, polyamines...)
 	return data
 }
 
@@ -108,4 +110,8 @@ func (s *Server) getPolyamines(names ...string) models.Polyamines {
 		polyamines = append(polyamines, s.data.Polyamines[i].GetByName(name))
 	}
 	return polyamines
+}
+
+func (s *Server) handleResources() http.Handler {
+	return http.StripPrefix("/resources", http.FileServer(http.Dir("./html/resources/")))
 }

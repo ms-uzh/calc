@@ -6,7 +6,7 @@
             <p>Head</p>
             <select name="head">
                 {{range .Heads}}
-                    <option value={{.Name}}>{{.Name}}</option>
+                    <option value={{.Name}}>{{generateChemicalName .Name}}</option>
                 {{end}}
             </select>
         </section>
@@ -15,7 +15,7 @@
             {{range .Polyamines}}
             <select name="polyamineUnits">
                 {{range .}}
-                    <option value={{.Name}}>{{.Name}}</option>
+                    <option value={{.Name}}>{{generateChemicalName .Name}}</option>
                 {{end}}
             </select>
             {{ end }}
@@ -24,7 +24,7 @@
             <p>Tail</p>
             <select name="tail">
                 {{range .Tails}}
-                    <option value={{.Name}}>{{.Name}}</option>
+                    <option value={{.Name}}>{{generateChemicalName .Name}}</option>
                 {{end}}
             </select>
         </section>

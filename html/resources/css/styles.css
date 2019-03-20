@@ -1,0 +1,7 @@
+html {
+    background-color: rgb(240, 173, 93);
+}
+
+table, th, td {
+    border: 1px solid black;
+}

@@ -71,6 +71,7 @@ type Result struct {
 	Fragments    []Fragment
 }
 
+type Fragments []Fragment
 type Fragment struct {
 	A  float64
 	B  float64

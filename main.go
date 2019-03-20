@@ -13,5 +13,5 @@ func main() {
 		"./config/tail.yaml",
 		"./config/app.yaml",
 	)
-	calc_html.NewServer(conf).ListenAndServce()
+	calc_html.NewServer(conf).ListenAndServe()
 }

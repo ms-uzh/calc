@@ -1,9 +1,9 @@
 package calculation
 
 const (
-	h   = float64(1.00782503223)
-	d   = float64(2.014102)
-	nh  = float64(15.01089903666)
-	nh3 = float64(17.02654919112)
-	h2o = float64(18.01056468403)
+	H   = float64(1.00782503223)
+	D   = float64(2.014102)
+	NH  = float64(15.01089903666)
+	NH3 = float64(17.02654919112)
+	H2O = float64(18.01056468403)
 )

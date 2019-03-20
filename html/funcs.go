@@ -6,20 +6,29 @@ import (
 )
 
 var (
-	superRegexp  = regexp.MustCompile(`\+[0-9]*`)
-	numberRegexp = regexp.MustCompile("[0-9]+")
+	superRegexp      = regexp.MustCompile(`\+[0-9]*`)
+	numberRegexp     = regexp.MustCompile("[0-9]+")
+	inBracketsRegexp = regexp.MustCompile(`\(.*[0-9]+.*\)`)
 )
 
 func (s *Server) getFuncs() map[string]interface{} {
 	return map[string]interface{}{
-		"joinChemicalFormula": joinChemicalFormula,
-		"getCalcAddress":      s.generateGetCalcAddress(),
+		"joinChemicalFormula":  joinChemicalFormula,
+		"getCalcAddress":       s.generateGetCalcAddress(),
+		"generateChemicalName": generateChemicalName,
+		"getCSSPath":           s.generateCSSPath(),
 	}
 }
 
 func (s *Server) generateGetCalcAddress() func() string {
 	return func() string {
 		return fmt.Sprintf("%s:%s/calc", s.conf.App.URL, s.conf.App.Port)
+	}
+}
+
+func (s *Server) generateCSSPath() func() string {
+	return func() string {
+		return "/resources/css/styles.css"
 	}
 }
 
@@ -32,6 +41,10 @@ func joinChemicalFormula(texts []string) (joined string) {
 	joined = superRegexp.ReplaceAllStringFunc(joined, super)
 	joined = numberRegexp.ReplaceAllStringFunc(joined, subscript)
 	return joined
+}
+
+func generateChemicalName(text string) string {
+	return inBracketsRegexp.ReplaceAllStringFunc(text, subscript)
 }
 
 func super(text string) (replaced string) {
