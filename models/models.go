@@ -6,6 +6,7 @@ type Head struct {
 	Mass       float64
 	HDX        uint
 	Quaternary int
+	IsSelected bool
 }
 
 type Heads []Head
@@ -19,6 +20,13 @@ func (heads Heads) GetByName(name string) Head {
 	return Head{}
 }
 
+func (heads Heads) SetSelected(name string) Heads {
+	for i, head := range heads {
+		heads[i].IsSelected = head.Name == name
+	}
+	return heads
+}
+
 type Polyamines []Polyamine
 
 type Polyamine struct {
@@ -28,6 +36,7 @@ type Polyamine struct {
 	HDX        uint
 	Sub        Sub
 	Quaternary int
+	IsSelected bool
 }
 
 func (polys Polyamines) GetByName(name string) Polyamine {
@@ -39,6 +48,24 @@ func (polys Polyamines) GetByName(name string) Polyamine {
 	return Polyamine{}
 }
 
+func (polys Polyamines) SetSelected(name string) Polyamines {
+	newPolys := make(Polyamines, len(polys))
+	copy(newPolys, polys)
+	for i, poly := range newPolys {
+		newPolys[i].IsSelected = poly.Name == name
+	}
+	return newPolys
+}
+
+func containsName(name string, names ...string) bool {
+	for _, checkName := range names {
+		if name == checkName {
+			return true
+		}
+	}
+	return false
+}
+
 type Tails []Tail
 
 type Tail struct {
@@ -48,6 +75,7 @@ type Tail struct {
 	HDX        uint
 	Sub        Sub
 	Quaternary int
+	IsSelected bool
 }
 
 func (tails Tails) GetByName(name string) Tail {
@@ -57,6 +85,13 @@ func (tails Tails) GetByName(name string) Tail {
 		}
 	}
 	return Tail{}
+}
+
+func (tails Tails) SetSelected(name string) Tails {
+	for i, tail := range tails {
+		tails[i].IsSelected = tail.Name == name
+	}
+	return tails
 }
 
 type Sub struct {
