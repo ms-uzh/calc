@@ -5,37 +5,21 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/fforootd/calc/models"
 )
 
-func TestExampleName1(t *testing.T) {
-	head := models.Head{
-		Name:       "4-OH-IndAc",
-		Quaternary: 0,
-	}
+func TestCalculateNameExample1(t *testing.T) {
+	name := CalculateName(example1.Head, example1.Tail, example1.Polys...)
+	assert.Equal(t, "4-OH-IndAc3(OH)34", name)
+}
 
-	tail := models.Tail{
-		Name:       "",
-		Quaternary: 0,
-	}
+func TestCalculateNameExample2(t *testing.T) {
+	name := CalculateName(example2.Head, example2.Tail, example2.Polys...)
+	assert.Equal(t, "4-OH-IndAc3(OH)35(NMe₃)⁺", name)
+}
 
-	pa1 := models.Polyamine{
-		Name:       "3",
-		Quaternary: 0,
-	}
-
-	pa2 := models.Polyamine{
-		Name:       "(OH)3",
-		Quaternary: 0,
-	}
-
-	pa3 := models.Polyamine{
-		Name:       "4",
-		Quaternary: 0,
-	}
-
-	assert.Equal(t, "4-OH-IndAc3(OH)34", CalculateName(head, tail, pa1, pa2, pa3))
+func TestCalculateNameExample3(t *testing.T) {
+	name := CalculateName(example3.Head, example3.Tail, example3.Polys...)
+	assert.Equal(t, "IndLac4(Me₂)3(Me₂)3²⁺", name)
 }
 
 func TestQuaternaryZero(t *testing.T) {
