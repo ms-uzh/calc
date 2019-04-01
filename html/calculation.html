@@ -11,7 +11,7 @@
     </section>
     <section id="molecularMass">
         <p>Molecular Mass</p>
-        {{.MolecularMass}}
+        {{round .MolecularMass}}
     </section>
     <section id="calculations">
         <table>
@@ -26,13 +26,13 @@
             </tr>
             {{range .Fragments}}
             <tr>
-              <td>{{.A}}</td>
-              <td>{{.B}}</td> 
-              <td>{{.C}}</td>
-              <td>{{.Ta}}</td>
-              <td>{{.Z}}</td>
-              <td>{{.Y}}</td>
-              <td>{{.Tz}}</td>
+              <td>{{round .A}}</td>
+              <td>{{round .B}}</td> 
+              <td>{{round .C}}</td>
+              <td>{{round .Ta}}</td>
+              <td>{{round .Z}}</td>
+              <td>{{round .Y}}</td>
+              <td>{{round .Tz}}</td>
             </tr>
             {{end}}
           </table>

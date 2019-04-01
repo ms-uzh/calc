@@ -17,6 +17,7 @@ func (s *Server) getFuncs() map[string]interface{} {
 		"getCalcAddress":       s.generateGetCalcAddress(),
 		"generateChemicalName": generateChemicalName,
 		"getCSSPath":           s.generateCSSPath(),
+		"round":                round,
 	}
 }
 
@@ -30,6 +31,10 @@ func (s *Server) generateCSSPath() func() string {
 	return func() string {
 		return "/resources/css/styles.css"
 	}
+}
+
+func round(number float64) string {
+	return fmt.Sprintf("%.5f", number)
 }
 
 func joinChemicalFormula(texts []string) (joined string) {
