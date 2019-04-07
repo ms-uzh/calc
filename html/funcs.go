@@ -39,12 +39,12 @@ func round(number float64) string {
 
 func joinChemicalFormula(texts []string) (joined string) {
 	for _, text := range texts {
+		text = superRegexp.ReplaceAllStringFunc(text, super)
+		text = numberRegexp.ReplaceAllStringFunc(text, subscript)
 		if text != "" {
 			joined += text
 		}
 	}
-	joined = superRegexp.ReplaceAllStringFunc(joined, super)
-	joined = numberRegexp.ReplaceAllStringFunc(joined, subscript)
 	return joined
 }
 
