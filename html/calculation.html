@@ -2,18 +2,19 @@
 <article id="calculation">
     <h2>Calculated Parameters</h2>
     <section id="genericName">
-        <p>Generic Name</p>
-        <p>{{.GenericName}}</p>
+        <h3>Generic Name</h3>
+        <p>{{generateChemicalName .GenericName}}</p>
     </section>
     <section id="chemicalFormula">
-        <p>Chemical Formula</p>
+        <h3>Chemical Formula</h3>
         <p>{{joinChemicalFormula .ChemicalFormula}}</p>
     </section>
     <section id="molecularMass">
-        <p>Molecular Mass</p>
+        <h3>Molecular Mass</h3>
         {{round .MolecularMass}}
     </section>
     <section id="calculations">
+        <h3>Fragment Ions</h3>
         <table>
             <tr>
                 <th>a</th>

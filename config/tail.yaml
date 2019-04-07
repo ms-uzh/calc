@@ -4,3 +4,11 @@
   Mass: 16.01872
   HDX: 2
   Quaternary: 0
+- Name: '(NMe₃)'
+  Formula: ['C3', 'H9', 'N']
+  Mass: 59.07350
+  HDX: 0
+  Sub:
+    Name: 'C3H7'
+    Mass: 43.05478
+  Quaternary: 1

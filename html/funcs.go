@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	superRegexp      = regexp.MustCompile(`\+[0-9]*`)
+	superRegexp      = regexp.MustCompile(`([0-9]|)\+`)
 	numberRegexp     = regexp.MustCompile("[0-9]+")
 	inBracketsRegexp = regexp.MustCompile(`\(.*[0-9]+.*\)`)
 )
@@ -49,7 +49,9 @@ func joinChemicalFormula(texts []string) (joined string) {
 }
 
 func generateChemicalName(text string) string {
-	return inBracketsRegexp.ReplaceAllStringFunc(text, subscript)
+	text = superRegexp.ReplaceAllStringFunc(text, super)
+	// text = inBracketsRegexp.ReplaceAllStringFunc(text, subscript)
+	return text
 }
 
 func super(text string) (replaced string) {

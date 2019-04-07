@@ -31,23 +31,25 @@ func TestGenerateFormulaInvalidText(t *testing.T) {
 func TestGenerateFormulaExample1(t *testing.T) {
 	formulas, err := CalculateFormula(example1.Head, example1.Tail, example1.Polys...)
 	require.NoError(t, err)
-	assert.Len(t, formulas, 4)
+
 	expected := []string{"C20", "H33", "N5", "O3"}
+	assert.Len(t, formulas, len(expected))
 	assert.Equal(t, expected, formulas)
 }
 func TestGenerateFormulaExample2(t *testing.T) {
 	formulas, err := CalculateFormula(example2.Head, example2.Tail, example2.Polys...)
 	require.NoError(t, err)
-	assert.Len(t, formulas, 4)
 
-	expected := []string{"C24", "H42", "N5", "O3"}
+	expected := []string{"C24", "H42", "N5", "O3", "+"}
+	assert.Len(t, formulas, len(expected))
 	assert.Equal(t, expected, formulas)
 }
 
 func TestGenerateFormulaExample3(t *testing.T) {
 	formulas, err := CalculateFormula(example3.Head, example3.Tail, example3.Polys...)
 	require.NoError(t, err)
-	assert.Len(t, formulas, 4)
-	expected := []string{"C25", "H45", "N5", "O2"}
+
+	expected := []string{"C25", "H45", "N5", "O2", "2+"}
+	assert.Len(t, formulas, len(expected))
 	assert.Equal(t, expected, formulas)
 }

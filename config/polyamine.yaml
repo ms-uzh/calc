@@ -17,4 +17,21 @@
   Mass: 71.07350
   HDX: 1
   Quaternary: 0
-  
+- Name: '5'
+  Formula: ["C5", "H11", "N"]
+  Mass: 85.08915
+  HDX: 1
+  Quaternary: 
+- Name: '4'
+  Formula: ["C4", "H9", "N"]
+  Mass: 71.07350
+  HDX: 1
+  Quaternary: 
+- Name: '(Me₂)3'
+  Formula: ["C5", "H12", "N"]
+  Mass: 86.09697
+  Sub:
+    Name: 'C2H5'
+    Mass: 29.03913
+  HDX: 0
+  Quaternary: 1

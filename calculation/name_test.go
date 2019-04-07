@@ -14,12 +14,12 @@ func TestCalculateNameExample1(t *testing.T) {
 
 func TestCalculateNameExample2(t *testing.T) {
 	name := CalculateName(example2.Head, example2.Tail, example2.Polys...)
-	assert.Equal(t, "4-OH-IndAc3(OH)35(NMe₃)⁺", name)
+	assert.Equal(t, "4-OH-IndAc3(OH)35(NMe₃)+", name)
 }
 
 func TestCalculateNameExample3(t *testing.T) {
 	name := CalculateName(example3.Head, example3.Tail, example3.Polys...)
-	assert.Equal(t, "IndLac4(Me₂)3(Me₂)3²⁺", name)
+	assert.Equal(t, "IndLac4(Me₂)3(Me₂)32+", name)
 }
 
 func TestQuaternaryZero(t *testing.T) {

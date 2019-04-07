@@ -46,24 +46,33 @@ func (f Formulas) join() []string {
 
 func CalculateFormula(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (formula []string, err error) {
 	formulas := Formulas{}
-	formulas, err = CaclulateFormulas(formulas, head.Formula...)
+	formulas, err = caclulateFormulas(formulas, head.Formula...)
 	if err != nil {
 		return nil, err
 	}
 	for _, polyamine := range polyamines {
-		formulas, err = CaclulateFormulas(formulas, polyamine.Formula...)
+		formulas, err = caclulateFormulas(formulas, polyamine.Formula...)
 		if err != nil {
 			return nil, err
 		}
 	}
-	formulas, err = CaclulateFormulas(formulas, tail.Formula...)
+	formulas, err = caclulateFormulas(formulas, tail.Formula...)
 	if err != nil {
 		return nil, err
 	}
-	return formulas.join(), nil
+
+	quat := calculateQuaternary(head, tail, polyamines...)
+	quatName := CalculateQuaternaryName(quat)
+
+	formulasJoined := formulas.join()
+	if quatName != "" {
+		formulasJoined = append(formulas.join(), quatName)
+	}
+
+	return formulasJoined, nil
 }
 
-func CaclulateFormulas(existingFormulas Formulas, formulas ...string) (Formulas, error) {
+func caclulateFormulas(existingFormulas Formulas, formulas ...string) (Formulas, error) {
 	for _, formulaText := range formulas {
 		formula, err := createFormula(formulaText)
 		if err != nil {
