@@ -6,9 +6,8 @@ import (
 )
 
 var (
-	superRegexp      = regexp.MustCompile(`([0-9]|)\+`)
-	numberRegexp     = regexp.MustCompile("[0-9]+")
-	inBracketsRegexp = regexp.MustCompile(`\(.*[0-9]+.*\)`)
+	superRegexp  = regexp.MustCompile(`([0-9]|)\+`)
+	numberRegexp = regexp.MustCompile("[0-9]+")
 )
 
 func (s *Server) getFuncs() map[string]interface{} {
@@ -50,7 +49,6 @@ func joinChemicalFormula(texts []string) (joined string) {
 
 func generateChemicalName(text string) string {
 	text = superRegexp.ReplaceAllStringFunc(text, super)
-	// text = inBracketsRegexp.ReplaceAllStringFunc(text, subscript)
 	return text
 }
 
