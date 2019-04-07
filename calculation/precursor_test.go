@@ -38,12 +38,12 @@ func TestCalculatePrecursor2Example3(t *testing.T) {
 
 func TestCalculatePrecursorHDX1Example1(t *testing.T) {
 	precursor1 := calculatePrecursorHDX1(example1.Head, example1.Tail, example1.Polys...)
-	assert.Equal(t, 400.31637, precursor1)
+	assert.Equal(t, 400.31637077438995, precursor1)
 }
 
 func TestCalculatePrecursorHDX1Example2(t *testing.T) {
 	precursor1 := calculatePrecursorHDX1(example2.Head, example2.Tail, example2.Polys...)
-	assert.Equal(t, 453.36015, precursor1)
+	assert.Equal(t, 453.36014483885003, precursor1)
 }
 
 func TestCalculatePrecursorHDX1Example3(t *testing.T) {
@@ -53,15 +53,15 @@ func TestCalculatePrecursorHDX1Example3(t *testing.T) {
 
 func TestCalculatePrecursorHDX2Example1(t *testing.T) {
 	precursor1 := calculatePrecursorHDX2(example1.Head, example1.Tail, example1.Polys...)
-	assert.Equal(t, 201.16523, precursor1)
+	assert.Equal(t, 201.16523638719497, precursor1)
 }
 
 func TestCalculatePrecursorHDX2Example2(t *testing.T) {
 	precursor1 := calculatePrecursorHDX2(example2.Head, example2.Tail, example2.Polys...)
-	assert.Equal(t, 227.68712, precursor1)
+	assert.Equal(t, 227.68712341942503, precursor1)
 }
 
 func TestCalculatePrecursorHDX2Example3(t *testing.T) {
 	precursor1 := calculatePrecursorHDX2(example3.Head, example3.Tail, example3.Polys...)
-	assert.Equal(t, 226.19436, precursor1)
+	assert.Equal(t, 226.19434741942496, precursor1)
 }

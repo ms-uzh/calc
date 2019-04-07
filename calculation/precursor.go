@@ -44,7 +44,6 @@ func calculatePrecursorHDX1(head models.Head, tail models.Tail, polyamines ...mo
 	}
 
 	precursor += correcture
-	precursor *= 0.5
 
 	return precursor
 }
@@ -90,23 +89,23 @@ func precursor2Correcture(quaternary int) float64 {
 
 func precursorHDX1Correcture(quaternary int, hdx float64) float64 {
 	if quaternary == 0 {
-		return hdx*H + (hdx+1)*D
+		return -1*hdx*H + (hdx+1)*D
 	}
 	if quaternary == 1 {
-		return hdx*H + hdx*D
+		return -1*hdx*H + hdx*D
 	}
 	return -1
 }
 
 func precursorHDX2Correcture(quaternary int, hdx float64) float64 {
 	if quaternary == 0 {
-		return hdx*H + (hdx+2)*D
+		return -1*hdx*H + (hdx+2)*D
 	}
 	if quaternary == 1 {
-		return hdx*H + (hdx+1)*D
+		return -1*hdx*H + (hdx+1)*D
 	}
 	if quaternary == 2 {
-		return hdx*H + hdx*D
+		return -1*hdx*H + hdx*D
 	}
 	return -1
 }
