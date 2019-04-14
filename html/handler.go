@@ -6,9 +6,12 @@ import (
 
 	"github.com/fforootd/calc/models"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/schema"
 
 	"github.com/yabslabs/utils/logging"
 )
+
+var decoder = schema.NewDecoder()
 
 func (s *Server) ListenAndServe() {
 	routeHandler := mux.NewRouter()
@@ -24,7 +27,7 @@ func (s *Server) ListenAndServe() {
 
 func (s *Server) handle() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var data *PageData
+		var data *models.PageData
 		switch r.Method {
 		case http.MethodPost:
 			data = s.handlePost(r)
@@ -41,9 +44,9 @@ func (s *Server) handleResources() http.Handler {
 	return http.StripPrefix("/resources", http.FileServer(http.Dir("./html/resources/")))
 }
 
-func (s *Server) handleGet(r *http.Request) *PageData {
+func (s *Server) handleGet(r *http.Request) *models.PageData {
 	logging.Log("HTML-Uko25").Info("get")
-	data := &PageData{Choose: &Choose{
+	data := &models.PageData{Choose: &models.Choose{
 		Heads:      s.conf.Heads,
 		Tails:      s.conf.Tails,
 		Polyamines: make([]models.Polyamines, s.conf.App.MaxPolyamineSelectors),
@@ -54,11 +57,11 @@ func (s *Server) handleGet(r *http.Request) *PageData {
 	return data
 }
 
-func (s *Server) handlePost(r *http.Request) *PageData {
+func (s *Server) handlePost(r *http.Request) *models.PageData {
 	if err := r.ParseForm(); err != nil {
 		log.Fatal("HTML-TzPhd: ", err)
 	}
-	var chosenInput Chosen
+	var chosenInput models.Chosen
 
 	err := decoder.Decode(&chosenInput, r.PostForm)
 	logging.Log("HTML-nYlSm").OnError(err).Warn("decode failed")

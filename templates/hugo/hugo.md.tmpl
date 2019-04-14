@@ -1,0 +1,59 @@
++++
+title = "{{generateChemicalName .GenericName}}"
++++
+
+## Related images
+
+## General Description for this `thing`
+
+| name                | value            |
+|---------------------|------------------|
+| Level               |                  |
+| First mention       |                  |
+| Alternative name(s) |                  |
+| Molecular formula   | {{joinChemicalFormula .ChemicalFormula}}	 |
+| CAS                 |                  |
+|                     |                  |
+| precursor 1         | {{round .Precursor1}}      |
+| precursor 2         | {{round .Precursor2}}       |
+| precursor 3         |                  |
+|                     |                  |
+| HDX                 | {{.HDX}}                |
+| precursor HDX       | {{round .PrecursorHDX1}}       |
+| precursor HDX 2     | {{round .PrecursorHDX2}}        |
+| precursor HDX 3     |                  |
+|                     |                  |
+| Rt                  |                  |
+| Rt HDX              |                  |
+
+## MS/MS fragments calculated
+
+| # | a         | b         | c         | ta        | z         | y         | tz        |
+|---|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+{{range .Fragments}}|{{.ID}}|{{.A}}|{{.B}}|{{.C}}|{{.Ta}}|{{.Z}}|{{.Y}}|{{.Tz}}|
+{{end}}
+
+## Additional characteristic MS/MS fragments
+
+| m/z       | annotation |
+|-----------|------------|
+|           |            |
+
+## Recorded MS/MS spectra
+
+| pdf | precursor | co-eluting | spider    | source                              |
+|-----|-----------|------------|-----------|-------------------------------------|
+|     |           |            |           |                                     |
+
+## References
+
+| Titel     | Reference   | spider    | name   | content  | DOI |
+|-----------|-------------|-----------|--------|----------|-----|
+|           |             |           |        |          |     |
+
+## Spider species
+
+| spider species     | source      |
+|--------------------|-------------|
+|                    |             |
+

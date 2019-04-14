@@ -1,8 +1,4 @@
-package html
-
-import (
-	"github.com/fforootd/calc/models"
-)
+package models
 
 type PageData struct {
 	*Choose
@@ -17,15 +13,16 @@ type Calculation struct {
 	Precursor2      float64
 	PrecursorHDX1   float64
 	PrecursorHDX2   float64
-	Fragments       models.Fragments
+	Fragments       Fragments
 	HDX             uint
 	Quaternary      int
+	Hugo            string
 }
 
 type Choose struct {
-	Heads      models.Heads
-	Polyamines []models.Polyamines
-	Tails      models.Tails
+	Heads      Heads
+	Polyamines []Polyamines
+	Tails      Tails
 }
 
 type Chosen struct {

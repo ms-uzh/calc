@@ -6,20 +6,18 @@ import (
 
 	calc "github.com/fforootd/calc/calculation"
 	"github.com/fforootd/calc/calculation/fragment"
+	"github.com/fforootd/calc/hugo"
 
 	"github.com/fforootd/calc/models"
 
 	"github.com/fforootd/calc/config"
-
-	"github.com/gorilla/schema"
 )
-
-var decoder = schema.NewDecoder()
 
 type Server struct {
 	handler http.Handler
 	tmpl    *template.Template
 	conf    *config.Config
+	hugo    hugo.Hugo
 }
 
 func NewServer(conf *config.Config) *Server {
@@ -28,12 +26,13 @@ func NewServer(conf *config.Config) *Server {
 		polyamineSelectors = append(polyamineSelectors, conf.Polynamines)
 	}
 	server := &Server{conf: conf}
-	server.tmpl = template.Must(template.New("index.html").Funcs(server.getFuncs()).ParseFiles("./html/index.html", "./html/calculation.html", "./html/choose.html"))
+	server.tmpl = template.Must(template.New("index.html").Funcs(server.getFuncs()).ParseFiles("./templates/html/index.html", "./templates/html/calculation.html", "./templates/html/choose.html"))
+	server.hugo = hugo.NewHugo()
 	return server
 }
 
-func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...models.Polyamine) *PageData {
-	data := &PageData{Choose: &Choose{}, Calculation: &Calculation{}}
+func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...models.Polyamine) *models.PageData {
+	data := &models.PageData{Choose: &models.Choose{}, Calculation: &models.Calculation{}}
 	data.Choose.Polyamines = make([]models.Polyamines, s.conf.App.MaxPolyamineSelectors)
 
 	data.Choose.Heads = s.conf.Heads.SetSelected(head.Name)
@@ -56,5 +55,6 @@ func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...m
 	data.Calculation.PrecursorHDX2 = calc.CalculatePrecursorHDX2(head, tail, polyamines...)
 	data.Calculation.HDX = calc.CalculateHDX(head, tail, polyamines...)
 	data.Calculation.Quaternary = calc.CalculateQuaternary(head, tail, polyamines...)
+	data.Calculation.Hugo = s.hugo.Exec(data.Calculation)
 	return data
 }

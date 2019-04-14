@@ -1,5 +1,6 @@
 package models
 
+type Heads []Head
 type Head struct {
 	Name       string
 	Formula    []string
@@ -8,8 +9,6 @@ type Head struct {
 	Quaternary int
 	IsSelected bool
 }
-
-type Heads []Head
 
 func (heads Heads) GetByName(name string) Head {
 	for _, head := range heads {
@@ -28,7 +27,6 @@ func (heads Heads) SetSelected(name string) Heads {
 }
 
 type Polyamines []Polyamine
-
 type Polyamine struct {
 	Name       string
 	Formula    []string
@@ -67,7 +65,6 @@ func containsName(name string, names ...string) bool {
 }
 
 type Tails []Tail
-
 type Tail struct {
 	Name       string
 	Formula    []string
@@ -97,13 +94,6 @@ func (tails Tails) SetSelected(name string) Tails {
 type Sub struct {
 	Name string
 	Mass float64
-}
-
-type Result struct {
-	Mass         float64
-	PreCursorOne float64
-	PreCursorTwo float64
-	Fragments    []Fragment
 }
 
 type Fragments []Fragment
