@@ -13,7 +13,13 @@ type Calculation struct {
 	GenericName     string
 	ChemicalFormula []string
 	MolecularMass   float64
+	Precursor1      float64
+	Precursor2      float64
+	PrecursorHDX1   float64
+	PrecursorHDX2   float64
 	Fragments       models.Fragments
+	HDX             uint
+	Quaternary      int
 }
 
 type Choose struct {

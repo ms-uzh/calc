@@ -7,7 +7,7 @@ import (
 )
 
 func CalculateName(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (name string) {
-	quaternary := calculateQuaternary(head, tail, polyamines...)
+	quaternary := CalculateQuaternary(head, tail, polyamines...)
 
 	name = head.Name
 	for _, polyamine := range polyamines {

@@ -7,16 +7,16 @@ import (
 )
 
 func TestCalculateQuaternaryExample1(t *testing.T) {
-	quat := calculateQuaternary(example1.Head, example1.Tail, example1.Polys...)
+	quat := CalculateQuaternary(example1.Head, example1.Tail, example1.Polys...)
 	assert.Equal(t, 0, quat)
 }
 
 func TestCalculateQuaternaryExample2(t *testing.T) {
-	quat := calculateQuaternary(example2.Head, example2.Tail, example2.Polys...)
+	quat := CalculateQuaternary(example2.Head, example2.Tail, example2.Polys...)
 	assert.Equal(t, 1, quat)
 }
 
 func TestCalculateQuaternaryExample3(t *testing.T) {
-	quat := calculateQuaternary(example3.Head, example3.Tail, example3.Polys...)
+	quat := CalculateQuaternary(example3.Head, example3.Tail, example3.Polys...)
 	assert.Equal(t, 2, quat)
 }

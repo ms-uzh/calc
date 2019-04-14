@@ -50,5 +50,11 @@ func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...m
 	data.Calculation.ChemicalFormula, _ = calc.CalculateFormula(head, tail, polyamines...)
 	data.Calculation.MolecularMass = calc.CalculateMass(head, tail, polyamines...)
 	data.Calculation.Fragments = fragment.CalculateFragments(head, tail, polyamines...)
+	data.Calculation.Precursor1 = calc.CalculatePrecursor1(head, tail, polyamines...)
+	data.Calculation.Precursor2 = calc.CalculatePrecursor2(head, tail, polyamines...)
+	data.Calculation.PrecursorHDX1 = calc.CalculatePrecursorHDX1(head, tail, polyamines...)
+	data.Calculation.PrecursorHDX2 = calc.CalculatePrecursorHDX2(head, tail, polyamines...)
+	data.Calculation.HDX = calc.CalculateHDX(head, tail, polyamines...)
+	data.Calculation.Quaternary = calc.CalculateQuaternary(head, tail, polyamines...)
 	return data
 }

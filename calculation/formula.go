@@ -61,7 +61,7 @@ func CalculateFormula(head models.Head, tail models.Tail, polyamines ...models.P
 		return nil, err
 	}
 
-	quat := calculateQuaternary(head, tail, polyamines...)
+	quat := CalculateQuaternary(head, tail, polyamines...)
 	quatName := CalculateQuaternaryName(quat)
 
 	formulasJoined := formulas.join()

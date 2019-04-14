@@ -13,6 +13,30 @@
         <h3>Molecular Mass</h3>
         {{round .MolecularMass}}
     </section>
+    <section id="hdx">
+        <h3>HDX</h3>
+        {{.HDX}}
+    </section>
+    <section id="quaternary">
+        <h3>Quaternary</h3>
+        {{.Quaternary}}
+    </section>
+    <section id="precursor1">
+        <h3>Precursor 1</h3>
+        {{round .Precursor1}}
+    </section>
+    <section id="precursor2">
+        <h3>Precursor 2</h3>
+        {{round .Precursor2}}
+    </section>
+    <section id="precursorhdx1">
+        <h3>Precursor HDX 1</h3>
+        {{round .PrecursorHDX1}}
+    </section>
+    <section id="precursorhdx2">
+        <h3>Precursor HDX 2</h3>
+        {{round .PrecursorHDX2}}
+    </section>
     <section id="calculations">
         <h3>Fragment Ions</h3>
         <table>
