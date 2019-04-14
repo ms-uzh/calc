@@ -41,6 +41,7 @@
         <h3>Fragment Ions</h3>
         <table>
             <tr>
+                <th>Nr.</th>
                 <th>a</th>
                 <th>b</th> 
                 <th>c</th>
@@ -51,6 +52,7 @@
             </tr>
             {{range .Fragments}}
             <tr>
+              <td>{{.ID}}</td>
               <td>{{round .A}}</td>
               <td>{{round .B}}</td> 
               <td>{{round .C}}</td>
