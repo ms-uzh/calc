@@ -30,6 +30,10 @@ func GenerateChemicalName(text string) string {
 	return text
 }
 
+func Index(numb int) int {
+	return numb + 1
+}
+
 func super(text string) (replaced string) {
 	for _, numb := range text {
 		switch string(numb) {

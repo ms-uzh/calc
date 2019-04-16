@@ -34,5 +34,6 @@ func (s *Hugo) getFuncs() map[string]interface{} {
 		"joinChemicalFormula":  templates.JoinChemicalFormula,
 		"generateChemicalName": templates.GenerateChemicalName,
 		"round":                templates.Round,
+		"index":                templates.Index,
 	}
 }

@@ -13,6 +13,7 @@ func (s *Server) getFuncs() map[string]interface{} {
 		"generateChemicalName": templates.GenerateChemicalName,
 		"getCSSPath":           s.generateCSSPath(),
 		"round":                templates.Round,
+		"index":                templates.Index,
 	}
 }
 

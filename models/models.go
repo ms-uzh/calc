@@ -98,7 +98,6 @@ type Sub struct {
 
 type Fragments []Fragment
 type Fragment struct {
-	ID int
 	A  float64
 	B  float64
 	C  float64

@@ -9,9 +9,6 @@ func CalculateFragments(head models.Head, tail models.Tail, polyamines ...models
 	fragments = calculateFromHead(fragments, head, tail, polyamines...)
 	fragments = calculateFromTail(fragments, tail, polyamines...)
 
-	for idx := range fragments {
-		fragments[idx].ID = idx + 1
-	}
 	return fragments
 }
 
