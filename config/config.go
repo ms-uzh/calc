@@ -12,6 +12,7 @@ type Config struct {
 	Heads       models.Heads
 	Polynamines models.Polyamines
 	Tails       models.Tails
+	Spiders     models.Spiders
 	App         App
 }
 
@@ -21,19 +22,21 @@ type App struct {
 	Port                  string
 }
 
-func ReadConfigs(headPath, polyaminePath, tailPath, appConfigPath string) *Config {
+func ReadConfigs(headPath, polyaminePath, tailPath, spiederPath, appConfigPath string) *Config {
 	config := new(Config)
 
 	readObject(headPath, &config.Heads)
 	readObject(polyaminePath, &config.Polynamines)
 	readObject(tailPath, &config.Tails)
 	readObject(appConfigPath, &config.App)
+	readObject(spiederPath, &config.Spiders)
 
 	if len(config.Heads) == 0 || len(config.Polynamines) == 0 || len(config.Tails) == 0 {
 		logging.Log("CONF-1NL9X").
 			WithField("heads", len(config.Heads)).
 			WithField("polyamines", len(config.Polynamines)).
 			WithField("tail", len(config.Tails)).
+			WithField("spider", len(config.Spiders)).
 			Panic("no objects configured")
 	}
 

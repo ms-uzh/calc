@@ -31,9 +31,10 @@ func NewServer(conf *config.Config) *Server {
 	return server
 }
 
-func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...models.Polyamine) *models.PageData {
+func (s *Server) processPost(head models.Head, tail models.Tail, polyamines models.Polyamines, spiders models.Spiders) *models.PageData {
 	data := &models.PageData{Choose: &models.Choose{}, Calculation: &models.Calculation{}}
 	data.Choose.Polyamines = make([]models.Polyamines, s.conf.App.MaxPolyamineSelectors)
+	data.Choose.Spiders = make([]models.Spiders, len(spiders)+1)
 
 	data.Choose.Heads = s.conf.Heads.SetSelected(head.Name)
 	for i := uint(0); i < s.conf.App.MaxPolyamineSelectors; i++ {
@@ -42,6 +43,22 @@ func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...m
 			polyName = polyamines[i].Name
 		}
 		data.Choose.Polyamines[i] = s.conf.Polynamines.SetSelected(polyName)
+	}
+
+	unselectedSpiders := make(models.Spiders, len(s.conf.Spiders))
+	copy(unselectedSpiders, s.conf.Spiders)
+	for i := 0; i < len(data.Choose.Spiders); i++ {
+		spiderSpecies := "-"
+		if i < len(spiders) {
+			spiderSpecies = spiders[i].Species
+		}
+		data.Choose.Spiders[i] = models.Spiders(unselectedSpiders).SetSelected(spiderSpecies)
+		if spiderSpecies == "-" {
+			continue
+		}
+		if i := unselectedSpiders.Index(spiderSpecies); i != -1 {
+			unselectedSpiders = append(unselectedSpiders[:i], unselectedSpiders[i+1:]...)
+		}
 	}
 	data.Choose.Tails = s.conf.Tails.SetSelected(tail.Name)
 
@@ -55,6 +72,6 @@ func (s *Server) processPost(head models.Head, tail models.Tail, polyamines ...m
 	data.Calculation.PrecursorHDX2 = calc.CalculatePrecursorHDX2(head, tail, polyamines...)
 	data.Calculation.HDX = calc.CalculateHDX(head, tail, polyamines...)
 	data.Calculation.Quaternary = calc.CalculateQuaternary(head, tail, polyamines...)
-	data.Calculation.Hugo = s.hugo.Exec(data.Calculation)
+	data.Calculation.Hugo = s.hugo.Exec(data.Calculation, spiders)
 	return data
 }

@@ -11,6 +11,7 @@ func main() {
 		"./config/head.yaml",
 		"./config/polyamine.yaml",
 		"./config/tail.yaml",
+		"./config/spider.yaml",
 		"./config/app.yaml",
 	)
 	calc_html.NewServer(conf).ListenAndServe()

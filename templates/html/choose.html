@@ -28,6 +28,18 @@
                 {{end}}
             </select>
         </section>
+        {{if .Spiders}}
+        <section id="spiders">
+            <h3>Spiders</h3>
+                {{range .Spiders}}
+                    <select name="spiders">
+                        {{range .}}
+                            <option value="{{.Species}}" {{if .IsSelected}} selected {{end}}>{{.Species}}</option>
+                        {{end}}
+                    </select>
+                {{end}}
+        </section>
+        {{end}}
         <section id="submit">
             <button type="submit">Calculate</button>
         </section>

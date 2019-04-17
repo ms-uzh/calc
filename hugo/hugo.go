@@ -15,14 +15,23 @@ type Hugo struct {
 	tmpl *template.Template
 }
 
+type hugoData struct {
+	*models.Calculation
+	models.Spiders
+}
+
 func NewHugo() (hugo Hugo) {
 	hugo.tmpl = template.Must(template.New("hugo.md.tmpl").Funcs(hugo.getFuncs()).ParseFiles("./templates/hugo/hugo.md.tmpl"))
 	return hugo
 }
 
-func (h Hugo) Exec(calc *models.Calculation) string {
+func (h Hugo) Exec(calc *models.Calculation, spiders models.Spiders) string {
 	var writer bytes.Buffer
-	if err := h.tmpl.Execute(&writer, calc); err != nil {
+	data := hugoData{
+		calc,
+		spiders,
+	}
+	if err := h.tmpl.Execute(&writer, &data); err != nil {
 		logging.Log("HUGO-hqbK8").WithError(err).Warn("unable to execute hugo tempalte")
 		return ""
 	}

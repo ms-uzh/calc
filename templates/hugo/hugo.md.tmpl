@@ -53,6 +53,7 @@ title = "{{generateChemicalName .GenericName}}"
 
 ## Spider species
 
-| spider species     | source      |
-|--------------------|-------------|
-|                    |             |
+| spider species     | family      | source      |
+|--------------------|-------------|-------------|
+{{range .Spiders}}| {{.Species}} | {{.Family}} |             |
+{{end}}

@@ -23,10 +23,12 @@ type Choose struct {
 	Heads      Heads
 	Polyamines []Polyamines
 	Tails      Tails
+	Spiders    []Spiders
 }
 
 type Chosen struct {
 	Head           string   `schema:"head"`
 	PolyamineUnits []string `schema:"polyamineUnits"`
 	Tail           string   `schema:"tail"`
+	Spiders        []string `schema:"spiders"`
 }

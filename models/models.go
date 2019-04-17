@@ -106,3 +106,37 @@ type Fragment struct {
 	Y  float64
 	Tz float64
 }
+
+type Spiders []Spider
+type Spider struct {
+	Species    string
+	Family     string
+	IsSelected bool
+}
+
+func (spiders Spiders) GetBySpicies(species string) Spider {
+	for _, spider := range spiders {
+		if spider.Species == species {
+			return spider
+		}
+	}
+	return Spider{}
+}
+
+func (spiders Spiders) SetSelected(species string) Spiders {
+	newSpiders := make(Spiders, len(spiders))
+	copy(newSpiders, spiders)
+	for i, spider := range newSpiders {
+		newSpiders[i].IsSelected = spider.Species == species
+	}
+	return newSpiders
+}
+
+func (spiders Spiders) Index(species string) int {
+	for i, spider := range spiders {
+		if spider.Species == species {
+			return i
+		}
+	}
+	return -1
+}

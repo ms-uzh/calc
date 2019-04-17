@@ -2,6 +2,36 @@ html {
     background-color: rgb(240, 173, 93);
 }
 
-table, th, td {
+body {
+    max-width:960px;
+    margin: auto;
+}
+
+table {
+    border: 10px;
+    max-width: 100%;
+}
+
+th, td {
     border: 1px solid black;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: DodgerBlue;
+}
+  
+.flex-item {
+    background-color: #f1f1f1;
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+}
+
+.wide-item {
+    background-color: #f1f1f1;
+    width: 940px;
+    margin: 10px;
+    overflow: scroll;
 }

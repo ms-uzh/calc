@@ -69,8 +69,20 @@ func (s *Server) handlePost(r *http.Request) *models.PageData {
 	head := s.conf.Heads.GetByName(chosenInput.Head)
 	tail := s.conf.Tails.GetByName(chosenInput.Tail)
 	polyamines := s.getPolyamines(chosenInput.PolyamineUnits...)
+	spiders := s.getSpiders(chosenInput.Spiders...)
 
-	return s.processPost(head, tail, polyamines...)
+	return s.processPost(head, tail, polyamines, spiders)
+}
+
+func (s *Server) getSpiders(spicieses ...string) models.Spiders {
+	spiders := models.Spiders{}
+	for _, spicies := range spicieses {
+		if spicies == "-" {
+			continue
+		}
+		spiders = append(spiders, s.conf.Spiders.GetBySpicies(spicies))
+	}
+	return spiders
 }
 
 func (s *Server) getPolyamines(names ...string) models.Polyamines {
