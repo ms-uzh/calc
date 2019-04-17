@@ -1,7 +1,7 @@
 {{define "choose"}}
 <article id="choose">
     <h2>Choose</h2>
-    <form action="{{getCalcAddress}}" method="POST">
+    <form action="{{getCalcAddress}}" method="POST" id="calculate">
         <section id="head">
             <h3>Head</h3>
             <select name="head">
@@ -40,9 +40,10 @@
                 {{end}}
         </section>
         {{end}}
-        <section id="submit">
-            <button type="submit">Calculate</button>
-        </section>
+        <button type="submit" form="calculate">Calculate</button>
+    </form>
+    <form action="{{getCalcAddress}}" method="GET" id="reset"></form>
+        <button type="submit" form="reset">Reset</button>
     </form>
 </article>
 {{end}}

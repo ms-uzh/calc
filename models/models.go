@@ -20,10 +20,12 @@ func (heads Heads) GetByName(name string) Head {
 }
 
 func (heads Heads) SetSelected(name string) Heads {
-	for i, head := range heads {
-		heads[i].IsSelected = head.Name == name
+	newHeads := make(Heads, len(heads))
+	copy(newHeads, heads)
+	for i, head := range newHeads {
+		newHeads[i].IsSelected = head.Name == name
 	}
-	return heads
+	return newHeads
 }
 
 type Polyamines []Polyamine
@@ -85,10 +87,12 @@ func (tails Tails) GetByName(name string) Tail {
 }
 
 func (tails Tails) SetSelected(name string) Tails {
+	newTails := make(Tails, len(tails))
+	copy(newTails, tails)
 	for i, tail := range tails {
-		tails[i].IsSelected = tail.Name == name
+		newTails[i].IsSelected = tail.Name == name
 	}
-	return tails
+	return newTails
 }
 
 type Sub struct {
