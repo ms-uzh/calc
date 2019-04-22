@@ -1,4 +1,4 @@
 MaxPolyamineSelectors: 11
 URL: '${listenURL}'
-ServerPort: '${port}' #Cloud Run does listen to an env variable, however this is a quick fix
+ServerPort: '${PORT}' #Cloud Run does listen to an env variable, however this is a quick fix
 RedirectPort: 443
