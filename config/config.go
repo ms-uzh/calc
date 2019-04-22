@@ -19,7 +19,8 @@ type Config struct {
 type App struct {
 	MaxPolyamineSelectors uint
 	URL                   string
-	Port                  string
+	ServerPort            string
+	RedirectPort          string
 }
 
 func ReadConfigs(headPath, polyaminePath, tailPath, spiederPath, appConfigPath string) *Config {

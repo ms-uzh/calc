@@ -20,7 +20,7 @@ func (s *Server) ListenAndServe() {
 	routeHandler.Handle("/", s.handle())
 	s.handler = routeHandler
 
-	if err := http.ListenAndServe(":"+s.conf.App.Port, s.handler); err != nil {
+	if err := http.ListenAndServe(":"+s.conf.App.ServerPort, s.handler); err != nil {
 		log.Fatal("oups: ", err)
 	}
 }

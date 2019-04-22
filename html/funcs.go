@@ -19,7 +19,7 @@ func (s *Server) getFuncs() map[string]interface{} {
 
 func (s *Server) generateGetCalcAddress() func() string {
 	return func() string {
-		return fmt.Sprintf("%s:%s/calc", s.conf.App.URL, s.conf.App.Port)
+		return fmt.Sprintf("%s:%s/calc", s.conf.App.URL, s.conf.App.RedirectPort)
 	}
 }
 
