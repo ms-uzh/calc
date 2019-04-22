@@ -1,4 +1,4 @@
 MaxPolyamineSelectors: 11
 URL: 'http://localhost'
 ServerPort: '${port}' #Cloud Run does listen to an env variable, however this is a quick fix
-RedirectPort: 80
+RedirectPort: 443
