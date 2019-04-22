@@ -21,5 +21,6 @@ RUN apk add ca-certificates
 COPY /config /config
 COPY /templates /templates
 COPY /templates/html /templates/html
+COPY /html /html
 COPY --from=builder /go/src/github.com/fforootd/calc/app /app
 ENTRYPOINT ["/app"]
