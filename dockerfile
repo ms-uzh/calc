@@ -24,7 +24,7 @@ FROM build_base AS server_builder
 # Here we copy the rest of the source code
 COPY . .
 # And compile the project
-RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o app
+RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o app -mod=vendor
  
 #In this last stage, we start from a fresh Alpine image, to reduce the image size and not ship the Go compiler in our production artifacts.
 FROM alpine AS app
