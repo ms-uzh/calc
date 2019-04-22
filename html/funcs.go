@@ -19,6 +19,9 @@ func (s *Server) getFuncs() map[string]interface{} {
 
 func (s *Server) generateGetCalcAddress() func() string {
 	return func() string {
+		if s.conf.App.RedirectPort == "" {
+			return fmt.Sprintf("%s/calc", s.conf.App.URL)
+		}
 		return fmt.Sprintf("%s:%s/calc", s.conf.App.URL, s.conf.App.RedirectPort)
 	}
 }
