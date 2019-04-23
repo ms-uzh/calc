@@ -8,19 +8,19 @@ title = "{{generateChemicalName .GenericName}}"
 
 | name                | value            |
 |---------------------|------------------|
-| Level               |                  |
-| First mention       |                  |
-| Alternative name(s) |                  |
-| Molecular formula   | {{joinChemicalFormula .ChemicalFormula}}	 |
+| level               |                  |
+| first mention       |                  |
+| alternative name(s) |                  |
+| molecular formula   | {{joinChemicalFormula .ChemicalFormula}}	 |
 | CAS                 |                  |
 |                     |                  |
-| precursor 1         | {{round .Precursor1}}      |
-| precursor 2         | {{round .Precursor2}}       |
+| precursor 1 [M+H]⁺       | {{round .Precursor1}}      |
+| precursor 2 [M+2H]²⁺        | {{round .Precursor2}}       |
 | precursor 3         |                  |
 |                     |                  |
 | HDX                 | {{.HDX}}                |
-| precursor HDX       | {{round .PrecursorHDX1}}       |
-| precursor HDX 2     | {{round .PrecursorHDX2}}        |
+| precursor HDX   [d-M+D]⁺      | {{round .PrecursorHDX1}}       |
+| precursor HDX 2 [d-M+2D]²⁺    | {{round .PrecursorHDX2}}        |
 | precursor HDX 3     |                  |
 |                     |                  |
 | Rt                  |                  |
@@ -47,7 +47,7 @@ title = "{{generateChemicalName .GenericName}}"
 
 ## References
 
-| Titel     | Reference   | spider    | name   | content  | DOI |
+| titel     | reference   | spider    | name   | content  | link |
 |-----------|-------------|-----------|--------|----------|-----|
 |           |             |           |        |          |     |
 
@@ -57,3 +57,5 @@ title = "{{generateChemicalName .GenericName}}"
 |--------------------|-------------|-------------|
 {{range .Spiders}}| {{.Species}} | {{.Family}} |             |
 {{end}}
+
+## Comments
