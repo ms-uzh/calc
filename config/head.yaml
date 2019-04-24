@@ -67,7 +67,7 @@
 - Name: 'PA'
   Formula: [ 'H']
   Mass: 1.00783
-  HDX: 0
+  HDX: 1
   Quaternary: 0
 - Name: 'PhAc'
   Formula: ['C8', 'H7', 'O']
