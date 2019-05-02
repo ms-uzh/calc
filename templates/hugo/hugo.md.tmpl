@@ -4,7 +4,7 @@ title = "{{generateChemicalName .GenericName}}"
 
 ## Related images
 
-## General Description for this `thing`
+## General Description
 
 | name                | value            |
 |---------------------|------------------|
@@ -30,7 +30,7 @@ title = "{{generateChemicalName .GenericName}}"
 
 | # | a         | b         | c         | ta        | z         | y         | tz        |
 |---|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-{{ range $fIdx, $f := .Fragments }}| {{index $fIdx}} | {{.A}} | {{.B}} | {{.C}} | {{.Ta}} | {{.Z}} | {{.Y}} | {{.Tz}} |
+{{ range $fIdx, $f := .Fragments }}| {{index $fIdx}} | {{round .A}} | {{round .B}} | {{round .C}} | {{round .Ta}} | {{round .Z}} | {{round .Y}} | {{round .Tz}} |
 {{end}}
 
 ## Additional characteristic MS/MS fragments
