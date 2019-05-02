@@ -2,7 +2,7 @@
 - Name: '2,4-(OH)₂-PhAc'
   Formula: ['C8', 'H7', 'O3']
   Mass: 151.03952
-  HDX: 0
+  HDX: 2
   Quaternary: 0
 - Name: '2,5-(OH)₂-Bz'
   Formula: ['C7', 'H5', 'O3']
