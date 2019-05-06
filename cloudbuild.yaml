@@ -4,3 +4,5 @@ steps:
   - --destination=gcr.io/$PROJECT_ID/spider
   - --cache=true
   - --cache-ttl=6h
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'spider', '--image', 'gcr.io/$PROJECT_ID/spider', '--region', 'us-central1']
