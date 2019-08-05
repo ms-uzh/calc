@@ -2,73 +2,79 @@
 <article id="calculation">
     <h2>Calculated Parameters</h2>
     <section class="flex-container">
-        <section id="genericName" class="flex-item">
-            <h3>Generic Name</h3>
-            <p>{{generateChemicalName .GenericName}}</p>
-        </section>
-        <section id="chemicalFormula" class="flex-item">
-            <h3>Chemical Formula</h3>
-            <p>{{joinChemicalFormula .ChemicalFormula}}</p>
+        <section id="genericName" class="wide-item">
+            <p class="calculation-value">{{generateChemicalName .GenericName}}</p>
+            <h3 class="calculation-header">Generic Name</h3>
         </section>
         <section id="molecularMass" class="flex-item">
-            <h3>Molecular Mass</h3>
-            <p>{{round .MolecularMass}}</p>
+            <p class="calculation-value">{{round .MolecularMass}}</p>
+            <h3 class="calculation-header">Molecular Mass</h3>
         </section>
-        <section id="hdx" class="flex-item">
-            <h3>HDX</h3>
-            <p>{{.HDX}}</p>
+        <section id="chemicalFormula" class="flex-item">
+            <p class="calculation-value">{{joinChemicalFormula .ChemicalFormula}}</p>
+            <h3 class="calculation-header">Molecular Formula</h3>
         </section>
         <section id="quaternary" class="flex-item">
-            <h3>Quaternary</h3>
-            <p>{{.Quaternary}}</p>
+            <p class="calculation-value">{{.Quaternary}}</p>
+            <h3 class="calculation-header">Charge</h3>
+        </section>
+        <section id="hdx" class="flex-item">
+            <p class="calculation-value">{{.HDX}}</p>
+            <h3 class="calculation-header">HDX</h3>
         </section>
         <section id="precursor1" class="flex-item">
-            <h3>Precursor 1</h3>
-            <p>{{round .Precursor1}}</p>
-        </section>
-        <section id="precursor2" class="flex-item">
-            <h3>Precursor 2</h3>
-            <p>{{round .Precursor2}}</p>
+            <p class="calculation-value">{{round .Precursor1}}</p>
+            <h3 class="calculation-header">Precursor 1</h3>
         </section>
         <section id="precursorhdx1" class="flex-item">
-            <h3>Precursor HDX 1</h3>
-            <p>{{round .PrecursorHDX1}}</p>
+            <p class="calculation-value">{{round .PrecursorHDX1}}</p>
+            <h3 class="calculation-header">Precursor HDX 1</h3>
+        </section>
+        <section id="precursor2" class="flex-item">
+            <p class="calculation-value">{{round .Precursor2}}</p>
+            <h3 class="calculation-header">Precursor 2</h3>
         </section>
         <section id="precursorhdx2" class="flex-item">
-            <h3>Precursor HDX 2</h3>
-            <p>{{round .PrecursorHDX2}}</p>
+            <p class="calculation-value">{{round .PrecursorHDX2}}</p>
+            <h3 class="calculation-header">Precursor HDX 2</h3>
         </section>
-        <section id="calculations" class="wide-item">
-            <h3>Fragment Ions</h3>
-            <table>
-                <tr>
-                    <th>#</th>
-                    <th>a</th>
-                    <th>b</th> 
-                    <th>c</th>
-                    <th>t<sub>a</sub></th>
-                    <th>z</th>
-                    <th>y</th> 
-                    <th>t<sub>z</sub></th>
-                </tr>
-                {{range $fIdx, $f := .Fragments}}
-                <tr>
-                    <td>{{index $fIdx}}</td>
-                    <td>{{round .A}}</td>
-                    <td>{{round .B}}</td> 
-                    <td>{{round .C}}</td>
-                    <td>{{round .Ta}}</td>
-                    <td>{{round .Z}}</td>
-                    <td>{{round .Y}}</td>
-                    <td>{{round .Tz}}</td>
-                </tr>
-                {{end}}
-                </table>
-        </section>
-        <section id="hugo" class="wide-item">
-            <h3>Hugo Text</h3>
-            <pre><code data-lang="markdown">{{.Hugo}}</code></pre>
-        </section>
+    </section>
+</article>
+<article id="calculations">
+    <h2>Fragment Ions</h2>
+    <table class="wide-item">
+        <tr>
+            <th>#</th>
+            <th>a</th>
+            <th>b</th> 
+            <th>c</th>
+            <th>t<sub>a</sub></th>
+            <th>z</th>
+            <th>y</th> 
+            <th>t<sub>z</sub></th>
+        </tr>
+        {{range $fIdx, $f := .Fragments}}
+        <tr>
+            <td>{{index $fIdx}}</td>
+            <td>{{round .A}}</td>
+            <td>{{round .B}}</td> 
+            <td>{{round .C}}</td>
+            <td>{{round .Ta}}</td>
+            <td>{{round .Z}}</td>
+            <td>{{round .Y}}</td>
+            <td>{{round .Tz}}</td>
+        </tr>
+        {{end}}
+    </table>
+</article>
+            
+<article id="hugo">
+    <h2>Hugo Text</h2>
+    <section class="wide-item">
+        <div id="hugo-download">
+            <a href="data:text/plain;base64;charset=UTF-8,{{toBase64 .Hugo}}" download="{{generateChemicalName .GenericName}}.md">Download</a>
+        </div>
+        <pre class="hugo"><code data-lang="markdown">{{.Hugo}}</code></pre>
     </section>
 </article>
 {{end}}
