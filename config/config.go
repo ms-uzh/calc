@@ -3,9 +3,9 @@ package config
 import (
 	"github.com/fforootd/calc/models"
 
-	"github.com/yabslabs/utils/logging"
+	"github.com/caos/utils/logging"
 
-	"github.com/yabslabs/utils/config/yaml"
+	"github.com/caos/utils/config/yaml"
 )
 
 type Config struct {

@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
 
-	"github.com/yabslabs/utils/logging"
+	"github.com/caos/utils/logging"
 )
 
 var decoder = schema.NewDecoder()
