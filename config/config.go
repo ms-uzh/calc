@@ -1,11 +1,13 @@
 package config
 
 import (
+	"io/ioutil"
+	"os"
+
 	"github.com/fforootd/calc/models"
+	"github.com/ghodss/yaml"
 
-	"github.com/caos/utils/logging"
-
-	"github.com/caos/utils/config/yaml"
+	"github.com/caos/logging"
 )
 
 type Config struct {
@@ -45,6 +47,12 @@ func ReadConfigs(headPath, polyaminePath, tailPath, spiederPath, appConfigPath s
 }
 
 func readObject(path string, object interface{}) {
-	err := yaml.ReadConfig(object, path)
+	file, err := ioutil.ReadFile(path)
+	logging.Log("CONFI-LzLmd").OnError(err).WithField("path", path).Panic("read configuration failed")
+
+	file = []byte(os.ExpandEnv(string(file)))
+
+	err = yaml.Unmarshal(file, object)
+
 	logging.Log("CONF-aNzV4").OnError(err).WithField("path", path).Panic("read configuration failed")
 }
