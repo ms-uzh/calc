@@ -1,2 +1,0 @@
-# logging
-extension of logrus
