@@ -1,25 +1,9 @@
-# github.com/caos/utils/config v0.0.0-20191206141910-db229cbffdf1
-github.com/caos/utils/config
-github.com/caos/utils/config/yaml
-# github.com/caos/utils/logging v0.0.0-20191206141910-db229cbffdf1
-github.com/caos/utils/logging
-# github.com/caos/utils/pairs v0.0.0-20191206141910-db229cbffdf1
-github.com/caos/utils/pairs
+# github.com/caos/logging v0.0.0-20191209214112-451b0381bcc5
+github.com/caos/logging
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
 # github.com/ghodss/yaml v1.0.0
 github.com/ghodss/yaml
-# github.com/golang/protobuf v1.3.2
-github.com/golang/protobuf/descriptor
-github.com/golang/protobuf/jsonpb
-github.com/golang/protobuf/proto
-github.com/golang/protobuf/protoc-gen-go/descriptor
-github.com/golang/protobuf/ptypes
-github.com/golang/protobuf/ptypes/any
-github.com/golang/protobuf/ptypes/duration
-github.com/golang/protobuf/ptypes/struct
-github.com/golang/protobuf/ptypes/timestamp
-github.com/golang/protobuf/ptypes/wrappers
 # github.com/google/go-cmp v0.2.0
 github.com/google/go-cmp/cmp
 github.com/google/go-cmp/cmp/internal/diff
@@ -29,10 +13,6 @@ github.com/google/go-cmp/cmp/internal/value
 github.com/gorilla/mux
 # github.com/gorilla/schema v1.1.0
 github.com/gorilla/schema
-# github.com/grpc-ecosystem/grpc-gateway v1.12.1
-github.com/grpc-ecosystem/grpc-gateway/internal
-github.com/grpc-ecosystem/grpc-gateway/runtime
-github.com/grpc-ecosystem/grpc-gateway/utilities
 # github.com/konsorten/go-windows-terminal-sequences v1.0.2
 github.com/konsorten/go-windows-terminal-sequences
 # github.com/pkg/errors v0.8.1
@@ -46,17 +26,6 @@ github.com/stretchr/testify/assert
 github.com/stretchr/testify/require
 # golang.org/x/sys v0.0.0-20191206220618-eeba5f6aabab
 golang.org/x/sys/unix
-# google.golang.org/genproto v0.0.0-20191206224255-0243a4be9c8f
-google.golang.org/genproto/googleapis/api/httpbody
-google.golang.org/genproto/googleapis/rpc/status
-google.golang.org/genproto/protobuf/field_mask
-# google.golang.org/grpc v1.25.1
-google.golang.org/grpc/codes
-google.golang.org/grpc/connectivity
-google.golang.org/grpc/grpclog
-google.golang.org/grpc/internal
-google.golang.org/grpc/metadata
-google.golang.org/grpc/status
 # gopkg.in/yaml.v2 v2.2.7
 gopkg.in/yaml.v2
 # gotest.tools v2.2.0+incompatible
