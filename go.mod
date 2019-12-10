@@ -3,7 +3,7 @@ module github.com/fforootd/calc
 go 1.13
 
 require (
-	github.com/caos/logging v0.0.0-20191209214112-451b0381bcc5
+	github.com/caos/logging v0.0.0-20191209233643-ae6d912ae84a
 	github.com/ghodss/yaml v1.0.0
 	github.com/google/go-cmp v0.2.0 // indirect
 	github.com/gorilla/mux v1.7.3
