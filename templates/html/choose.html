@@ -2,48 +2,52 @@
 <article id="choose">
     <h2>Choose</h2>
     <form action="{{getCalcAddress}}" method="POST" id="calculate">
-        <section id="head">
-            <h3>Head</h3>
-            <select name="head">
-                {{range .Heads}}
-                    <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
-                {{end}}
-            </select>
-        </section>
-        <section id="polyamineUnits">
-            <h3>Polyamine Units</h3>
-            {{range .Polyamines}}
-            <select name="polyamineUnits">
-                {{range .}}
-                    <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
-                {{end}}
-            </select>
-            {{ end }}
-        </section>
-        <section id="tail">
-            <h3>Tail</h3>
-            <select name="tail">
-                {{range .Tails}}
-                    <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
-                {{end}}
-            </select>
-        </section>
-        {{if .Spiders}}
-        <section id="spiders">
-            <h3>Spiders</h3>
-                {{range .Spiders}}
-                    <select name="spiders">
-                        {{range .}}
-                            <option value="{{.Species}}" {{if .IsSelected}} selected {{end}}>{{.Species}}</option>
-                        {{end}}
-                    </select>
-                {{end}}
-        </section>
-        {{end}}
-        <button type="submit" form="calculate">Calculate</button>
+        <div class="flex-container">
+            <section id="head" class="wide-item choose-item">
+                <h3>Head</h3>
+                <select name="head" class="choose-dropbox">
+                    {{range .Heads}}
+                        <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
+                    {{end}}
+                </select>
+            </section>
+            <section id="polyamineUnits" class="wide-item choose-item">
+                <h3>Polyamine Units</h3>
+                {{range .Polyamines}}
+                <select name="polyamineUnits" class="choose-dropbox">
+                    {{range .}}
+                        <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
+                    {{end}}
+                </select>
+                {{ end }}
+            </section>
+            <section id="tail" class="wide-item choose-item">
+                <h3>Tail</h3>
+                <select name="tail" class="choose-dropbox">
+                    {{range .Tails}}
+                        <option value="{{.Name}}" {{if .IsSelected}} selected {{end}}>{{ .Name}}</option>
+                    {{end}}
+                </select>
+            </section>
+            {{if .Spiders}}
+            <section id="spiders" class="wide-item choose-item">
+                <h3>Spiders</h3>
+                    {{range .Spiders}}
+                        <select name="spiders" class="choose-dropbox">
+                            {{range .}}
+                                <option value="{{.Species}}" {{if .IsSelected}} selected {{end}}>{{.Species}}</option>
+                            {{end}}
+                        </select>
+                    {{end}}
+            </section>
+            {{end}}
+        </div>
     </form>
     <form action="{{getCalcAddress}}" method="GET" id="reset"></form>
-        <button type="submit" form="reset">Reset</button>
     </form>
+    <div class="choose-buttons">
+        <button type="submit" form="calculate">Calculate</button>
+        <button type="submit" form="reset">Reset</button>
+    </div>
 </article>
 {{end}}

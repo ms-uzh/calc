@@ -1,37 +1,131 @@
-html {
-    background-color: rgb(240, 173, 93);
+:root{
+    --main-bg-color: white;
+    --secondary-bg-color: #f6f6f6;
+    --text-color: rgb(50, 50, 50);
+    --width-small: 458px;
+    --width-wide: 938px;
+    --section-border: 1px solid #e6e6e6;
+    --indent: 10px;
 }
 
 body {
     max-width:960px;
     margin: auto;
+    font-family: 'Montserrat';
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+}
+
+section {
+    border: var(--section-border)
 }
 
 table {
-    border: 10px;
     max-width: 100%;
+    border-collapse: collapse;
+    border: var(--section-border);
 }
 
 th, td {
-    border: 1px solid black;
+    padding: var(--indent);
+}
+
+th {
+    text-transform: none;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 800;
+    background: var(--secondary-bg-color);
+    border-bottom: 2px solid #e5e5e5;
+}
+
+tr {
+    border-bottom: 1px solid var(--secondary-bg-color);
+}
+
+tr:last-child {
+    border-bottom: 0px none;
+}
+
+td {
+    text-align: right;
+    border-right: var(--section-border);
+}
+
+h1 {
+    text-align: center;
+    font-size: 4vmax;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3vmax;
+}
+
+pre {
+    padding: var(--indent);
 }
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: DodgerBlue;
+    border: none;
 }
   
 .flex-item {
-    background-color: #f1f1f1;
-    width: 300px;
-    margin: 10px;
+    min-width: var(--width-small);
+    margin: var(--indent);
     text-align: center;
 }
 
 .wide-item {
-    background-color: #f1f1f1;
-    width: 940px;
-    margin: 10px;
+    width: var(--width-wide);
+    margin: var(--indent);
     overflow: scroll;
+}
+
+.choose-item {
+    text-align: center;
+}
+
+.choose-dropbox {
+    min-width: 80px;
+    margin: calc(var(--indent) / 2);
+    height: 25px;
+    background: var(--secondary-bg-color);
+}
+
+.calculation-header {
+    font-size: 1.2vmax;
+}
+
+.calculation-value {
+    margin: var(--indent) var(--indent) 0 var(--indent);
+    font-size: 2.1vmax;
+}
+
+.choose-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    font-size: 1.75vmax;
+    background-color: var(--secondary-bg-color);
+    cursor: pointer;
+    margin: 0 var(--indent) 0 var(--indent);
+}
+
+#hugo-download {
+    text-align: right;
+    position: absolute;
+    width: calc(var(--width-wide) - var(--indent));;
+    background: none;
+    padding-top: var(--indent);
+}
+
+#genericName {
+    text-align: center;
 }

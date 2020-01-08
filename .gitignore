@@ -16,5 +16,6 @@
 
 .vscode/*
 debug
+__debug_bin
 
 calc

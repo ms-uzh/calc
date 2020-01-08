@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/yabslabs/utils/logging"
+	"github.com/caos/logging"
 
 	"github.com/fforootd/calc/models"
 
