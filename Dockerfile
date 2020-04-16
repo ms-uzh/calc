@@ -3,7 +3,7 @@ FROM golang:1.12-alpine AS builder
  
 # Install some dependencies needed to build the project
 RUN apk add ca-certificates git
-WORKDIR /go/src/github.com/fforootd/calc
+WORKDIR /go/src/github.com/ms-uzh/calc
  
 # Force the go compiler to use modules
 ENV GO111MODULE=on
@@ -22,5 +22,5 @@ COPY /config /config
 COPY /templates /templates
 COPY /templates/html /templates/html
 COPY /html /html
-COPY --from=builder /go/src/github.com/fforootd/calc/app /app
+COPY --from=builder /go/src/github.com/ms-uzh/calc/app /app
 ENTRYPOINT ["/app"]

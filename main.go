@@ -1,9 +1,9 @@
 package main
 
 import (
-	calc_html "github.com/fforootd/calc/html"
+	calc_html "github.com/ms-uzh/calc/html"
 
-	"github.com/fforootd/calc/config"
+	"github.com/ms-uzh/calc/config"
 )
 
 func main() {

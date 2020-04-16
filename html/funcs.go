@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/fforootd/calc/templates"
+	"github.com/ms-uzh/calc/templates"
 )
 
 func (s *Server) getFuncs() map[string]interface{} {

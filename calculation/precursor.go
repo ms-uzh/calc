@@ -1,7 +1,7 @@
 package calculation
 
 import (
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 func CalculatePrecursor1(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {

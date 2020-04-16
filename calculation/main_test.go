@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 var (

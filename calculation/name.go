@@ -3,7 +3,7 @@ package calculation
 import (
 	"fmt"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 func CalculateName(head models.Head, tail models.Tail, polyamines ...models.Polyamine) (name string) {

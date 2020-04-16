@@ -1,8 +1,8 @@
 package fragment
 
 import (
-	"github.com/fforootd/calc/calculation"
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/calculation"
+	"github.com/ms-uzh/calc/models"
 )
 
 func calculateTA(previousMass float64, current, following models.Polyamine, tail models.Tail, isFirst, isLast bool) float64 {

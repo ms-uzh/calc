@@ -1,7 +1,7 @@
 package fragment
 
 import (
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 func CalculateFragments(head models.Head, tail models.Tail, polyamines ...models.Polyamine) models.Fragments {
