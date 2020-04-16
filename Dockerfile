@@ -11,7 +11,7 @@ ENV GO111MODULE=on
 # Here we copy the rest of the source code
 COPY . .
 # And compile the project
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app -mod=vendor
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o app
  
 #In this last stage, we start from a fresh Alpine image, to reduce the image size and not ship the Go compiler in our production artifacts.
 FROM alpine AS app
