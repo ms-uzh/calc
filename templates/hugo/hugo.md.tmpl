@@ -19,8 +19,8 @@ title = "{{generateChemicalName .GenericName}}"
 | Precursor 3         |                  |
 |                     |                  |
 | HDX                 | {{.HDX}}                |
-| Precursor HDX   [d-M+D]⁺      | {{round .PrecursorHDX1}}       |
-| Precursor HDX 2 [d-M+2D]²⁺    | {{round .PrecursorHDX2}}        |
+| Precursor HDX   [M(D{{.HDX}})+D]⁺      | {{round .PrecursorHDX1}}       |
+| Precursor HDX 2 [M(D{{.HDX}})+2D]²⁺    | {{round .PrecursorHDX2}}        |
 | Precursor HDX 3     |                  |
 |                     |                  |
 | Rt                  |                  |

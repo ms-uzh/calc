@@ -49,16 +49,6 @@
   Mass: 188.07115
   HDX: 2
   Quaternary: 0
-- Name: 'MMPA'
-  Formula: ['C4', 'H7', 'O', 'S']
-  Mass: 103.02176
-  HDX: 0
-  Quaternary: 0
-- Name: 'Nic'
-  Formula: ['C6', 'H4', 'N', 'O1']
-  Mass: 106.02929
-  HDX: 0
-  Quaternary: 0
 - Name: 'OH-OMe-Bz'
   Formula: ['C8', 'H7', 'O3']
   Mass: 151.03952
