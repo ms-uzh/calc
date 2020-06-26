@@ -4,6 +4,10 @@ import (
 	"github.com/fforootd/calc/models"
 )
 
+const (
+	massElectron = 0.0005485799
+)
+
 func CalculatePrecursor1(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
 	precursor := CalculateMass(head, tail, polyamines...)
 
@@ -13,6 +17,7 @@ func CalculatePrecursor1(head models.Head, tail models.Tail, polyamines ...model
 		return -1
 	}
 
+	precursor -= massElectron
 	precursor += correcture
 
 	return precursor
@@ -27,6 +32,7 @@ func CalculatePrecursor2(head models.Head, tail models.Tail, polyamines ...model
 		return -1
 	}
 
+	precursor -= 2 * massElectron
 	precursor += correcture
 	precursor *= 0.5
 
@@ -43,6 +49,7 @@ func CalculatePrecursorHDX1(head models.Head, tail models.Tail, polyamines ...mo
 		return -1
 	}
 
+	precursor -= massElectron
 	precursor += correcture
 
 	return precursor
@@ -58,6 +65,7 @@ func CalculatePrecursorHDX2(head models.Head, tail models.Tail, polyamines ...mo
 		return -1
 	}
 
+	precursor -= 2 * massElectron
 	precursor += correcture
 	precursor *= 0.5
 
