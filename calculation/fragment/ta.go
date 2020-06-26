@@ -25,10 +25,10 @@ func calculateFirstTA(headMass float64, polyamine, following models.Polyamine) f
 
 //ta(n-1) + mass(PA_n) – Sub_mass(PA_n) + Sub_mass(PA_n+1) –  Quat(PA_n+1) * C1
 func calculateMiddleTAs(previous float64, polyamine, following models.Polyamine) float64 {
-	return previous + polyamine.Mass - polyamine.Sub.Mass + following.Sub.Mass - float64(following.Quaternary)*calculation.H - calculation.MassElectron
+	return previous + polyamine.Mass - polyamine.Sub.Mass + following.Sub.Mass - float64(following.Quaternary)*calculation.H
 }
 
 //ta(m–1) + mass(PA_m) – Sub_mass(PA_m)+ Sub_mass(Tail) –  Quat(Tail) * C1
 func calculateLastTA(previous float64, polyamine models.Polyamine, tail models.Tail) float64 {
-	return previous + polyamine.Mass - polyamine.Sub.Mass + tail.Sub.Mass - float64(tail.Quaternary)*calculation.H - calculation.MassElectron
+	return previous + polyamine.Mass - polyamine.Sub.Mass + tail.Sub.Mass - float64(tail.Quaternary)*calculation.H
 }

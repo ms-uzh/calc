@@ -44,7 +44,7 @@ func calculateFromTail(fragments models.Fragments, tail models.Tail, polyamines 
 func calculateFromHead(fragments models.Fragments, head models.Head, tail models.Tail, polyamines ...models.Polyamine) models.Fragments {
 	previous := models.Fragment{A: head.Mass, B: head.Mass, C: head.Mass, Ta: head.Mass}
 	for i, polyamine := range polyamines {
-		a := calculateA(previous.A, polyamine)
+		a := calculateA(previous.A, polyamine, i == 0)
 		previous.A = a
 
 		b := calculateB(previous.B, polyamine, i == 0)
