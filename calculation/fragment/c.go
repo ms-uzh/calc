@@ -6,7 +6,7 @@ import (
 )
 
 func calculateC(previous float64, polyamine models.Polyamine, isFirst bool) float64 {
-	c := previous + polyamine.Mass - float64(polyamine.Quaternary)*calculation.H
+	c := previous + polyamine.Mass - float64(polyamine.Quaternary)*calculation.H - calculation.MassElectron
 	if isFirst {
 		c -= calculation.NH3
 	}

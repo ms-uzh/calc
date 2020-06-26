@@ -13,6 +13,7 @@ func CalculatePrecursor1(head models.Head, tail models.Tail, polyamines ...model
 		return -1
 	}
 
+	precursor -= MassElectron
 	precursor += correcture
 
 	return precursor
@@ -27,6 +28,7 @@ func CalculatePrecursor2(head models.Head, tail models.Tail, polyamines ...model
 		return -1
 	}
 
+	precursor -= 2 * MassElectron
 	precursor += correcture
 	precursor *= 0.5
 
@@ -43,6 +45,7 @@ func CalculatePrecursorHDX1(head models.Head, tail models.Tail, polyamines ...mo
 		return -1
 	}
 
+	precursor -= MassElectron
 	precursor += correcture
 
 	return precursor
@@ -58,6 +61,7 @@ func CalculatePrecursorHDX2(head models.Head, tail models.Tail, polyamines ...mo
 		return -1
 	}
 
+	precursor -= 2 * MassElectron
 	precursor += correcture
 	precursor *= 0.5
 

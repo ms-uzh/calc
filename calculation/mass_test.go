@@ -13,10 +13,10 @@ func TestCalculcateMassExample1(t *testing.T) {
 
 func TestCalculcateMassExample2(t *testing.T) {
 	mass := CalculateMass(example2.Head, example2.Tail, example2.Polys...)
-	assert.Equal(t, 448.32876000000005, mass)
+	assert.Equal(t, 448.32821142010005, mass)
 }
 
 func TestCalculcateMassExample3(t *testing.T) {
 	mass := CalculateMass(example3.Head, example3.Tail, example3.Polys...)
-	assert.Equal(t, 447.3573099999999, mass)
+	assert.Equal(t, 447.35621284019993, mass)
 }

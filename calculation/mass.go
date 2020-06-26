@@ -8,5 +8,9 @@ func CalculateMass(head models.Head, tail models.Tail, polyamines ...models.Poly
 		mass += polyamine.Mass
 	}
 	mass += tail.Mass
+
+	quaternary := CalculateQuaternary(head, tail, polyamines...)
+	mass -= MassElectron * float64(quaternary)
+
 	return mass
 }
