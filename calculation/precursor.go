@@ -4,10 +4,6 @@ import (
 	"github.com/ms-uzh/calc/models"
 )
 
-const (
-	massElectron = 0.0005485799
-)
-
 func CalculatePrecursor1(head models.Head, tail models.Tail, polyamines ...models.Polyamine) float64 {
 	precursor := CalculateMass(head, tail, polyamines...)
 

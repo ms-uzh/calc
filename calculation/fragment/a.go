@@ -6,5 +6,5 @@ import (
 )
 
 func calculateA(previous float64, polyamine models.Polyamine) float64 {
-	return previous + polyamine.Mass - (float64(polyamine.Quaternary) * calculation.H)
+	return previous + polyamine.Mass - (float64(polyamine.Quaternary) * calculation.H) - massElectron
 }
