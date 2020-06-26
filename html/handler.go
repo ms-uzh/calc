@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
 

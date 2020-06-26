@@ -2,60 +2,58 @@
 title = "{{generateChemicalName .GenericName}}"
 +++
 
-## Related images
+![](/img/2.png)
 
 ## General Description
 
 | name                | value            |
 |---------------------|------------------|
-| level               |                  |
-| first mention       |                  |
-| alternative name(s) |                  |
-| molecular formula   | {{joinChemicalFormula .ChemicalFormula}}	 |
+| Level               |                  |
+| Discovered          |                  |
+| Synonym             |                  |
+| Molecular formula   | {{joinChemicalFormula .ChemicalFormula}}	 |
 | CAS                 |                  |
 |                     |                  |
-| precursor 1 [M+H]⁺       | {{round .Precursor1}}      |
-| precursor 2 [M+2H]²⁺        | {{round .Precursor2}}       |
-| precursor 3         |                  |
+| Precursor 1 [M+H]⁺       | {{round .Precursor1}}      |
+| Precursor 2 [M+2H]²⁺        | {{round .Precursor2}}       |
+| Precursor 3         |                  |
 |                     |                  |
 | HDX                 | {{.HDX}}                |
-| precursor HDX   [d-M+D]⁺      | {{round .PrecursorHDX1}}       |
-| precursor HDX 2 [d-M+2D]²⁺    | {{round .PrecursorHDX2}}        |
-| precursor HDX 3     |                  |
+| Precursor HDX   [M(D{{.HDX}})+D]⁺      | {{round .PrecursorHDX1}}       |
+| Precursor HDX 2 [M(D{{.HDX}})+2D]²⁺    | {{round .PrecursorHDX2}}        |
+| Precursor HDX 3     |                  |
 |                     |                  |
 | Rt                  |                  |
 | Rt HDX              |                  |
 
-## MS/MS fragments calculated
+## Calculated MS/MS fragments
 
 | # | a         | b         | c         | ta        | z         | y         | tz        |
 |---|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 {{ range $fIdx, $f := .Fragments }}| {{index $fIdx}} | {{round .A}} | {{round .B}} | {{round .C}} | {{round .Ta}} | {{round .Z}} | {{round .Y}} | {{round .Tz}} |
 {{end}}
+## Additional MS/MS fragments
 
-## Additional characteristic MS/MS fragments
-
-| m/z       | annotation |
+| m/z       | Annotation |
 |-----------|------------|
 |           |            |
 
 ## Recorded MS/MS spectra
 
-| pdf | precursor | co-eluting | spider    | source                              |
-|-----|-----------|------------|-----------|-------------------------------------|
-|     |           |            |           |                                     |
+| pdf | Precursor | Co-eluting | Spider    | Source      | Author                 |
+|-----|-----------|------------|-----------|-------------|------------------------|
+|     |           |            |           |             |                        |
 
 ## References
 
-| titel     | reference   | spider    | name   | content  | link |
-|-----------|-------------|-----------|--------|----------|-----|
-|           |             |           |        |          |     |
+| Titel     | Reference   | Spider    | Name   | Content  | Link |
+|-----------|-------------|-----------|--------|----------|------|
+|           |             |           |        |          |      |
 
 ## Spider species
 
-| spider species     | family      | source      |
-|--------------------|-------------|-------------|
+| Spider species     | Family      | Discovered      |
+|--------------------|-------------|-----------------|
 {{range .Spiders}}| {{.Species}} | {{.Family}} |             |
 {{end}}
-
 ## Comments

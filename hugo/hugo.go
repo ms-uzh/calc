@@ -6,9 +6,9 @@ import (
 
 	"github.com/caos/logging"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 
-	"github.com/fforootd/calc/templates"
+	"github.com/ms-uzh/calc/templates"
 )
 
 type Hugo struct {

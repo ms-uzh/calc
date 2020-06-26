@@ -1,4 +1,4 @@
-module github.com/fforootd/calc
+module github.com/ms-uzh/calc
 
 go 1.13
 

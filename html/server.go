@@ -4,13 +4,13 @@ import (
 	"html/template"
 	"net/http"
 
-	calc "github.com/fforootd/calc/calculation"
-	"github.com/fforootd/calc/calculation/fragment"
-	"github.com/fforootd/calc/hugo"
+	calc "github.com/ms-uzh/calc/calculation"
+	"github.com/ms-uzh/calc/calculation/fragment"
+	"github.com/ms-uzh/calc/hugo"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 
-	"github.com/fforootd/calc/config"
+	"github.com/ms-uzh/calc/config"
 )
 
 type Server struct {

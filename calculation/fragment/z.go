@@ -1,8 +1,8 @@
 package fragment
 
 import (
-	"github.com/fforootd/calc/calculation"
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/calculation"
+	"github.com/ms-uzh/calc/models"
 )
 
 func calculateZ(previous float64, tail models.Tail, currentPoly, previousPoly models.Polyamine, isFirst bool) (z float64) {

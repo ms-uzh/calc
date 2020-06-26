@@ -1,7 +1,7 @@
 package calculation
 
 import (
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 const (

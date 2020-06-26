@@ -7,7 +7,7 @@
 - Name: '(NMe)'
   Formula: ['C1', 'H4', 'N']
   Mass: 30.03437413
-  HDX: 0
+  HDX: 1
   Sub:
     Name: 'CH2'
     Mass: 14.01565006
@@ -31,7 +31,7 @@
 - Name: 'Ac'
   Formula: ['C2', 'H4', 'N', 'O']
   Mass: 58.02928875
-  HDX: 0
+  HDX: 1
   Sub:
     Name: 'C2H20'
     Mass: 42.01056468

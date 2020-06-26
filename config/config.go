@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 	"github.com/ghodss/yaml"
 
 	"github.com/caos/logging"

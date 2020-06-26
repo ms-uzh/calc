@@ -1,6 +1,6 @@
 package calculation
 
-import "github.com/fforootd/calc/models"
+import "github.com/ms-uzh/calc/models"
 
 func CalculateHDX(head models.Head, tail models.Tail, polyamines ...models.Polyamine) uint {
 	hdx := head.HDX

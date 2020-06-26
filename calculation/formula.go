@@ -8,7 +8,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/fforootd/calc/models"
+	"github.com/ms-uzh/calc/models"
 )
 
 var numbRegexp = regexp.MustCompile("[0-9]")
