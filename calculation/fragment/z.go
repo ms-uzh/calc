@@ -7,7 +7,7 @@ import (
 
 func calculateZ(previous float64, tail models.Tail, currentPoly, previousPoly models.Polyamine, isFirst bool) (z float64) {
 	if isFirst {
-		return previous + currentPoly.Mass - currentPoly.Sub.Mass - float64(tail.Quaternary)*calculation.H - calculation.NH - massElectron
+		return previous + currentPoly.Mass - currentPoly.Sub.Mass - float64(tail.Quaternary)*calculation.H - calculation.NH - calculation.MassElectron
 	}
-	return previous + currentPoly.Mass + previousPoly.Sub.Mass - currentPoly.Sub.Mass - float64(previousPoly.Quaternary)*calculation.H - massElectron
+	return previous + currentPoly.Mass + previousPoly.Sub.Mass - currentPoly.Sub.Mass - float64(previousPoly.Quaternary)*calculation.H - calculation.MassElectron
 }
