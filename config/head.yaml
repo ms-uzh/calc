@@ -59,15 +59,15 @@
   Mass: 1.00782503223
   HDX: 1
   Quaternary: 0
-- Name: 'Phe'
-  Formula: ['C9', 'H10', 'N', 'O']
-  Mass: 148.07623894630
-  HDX: 2
-  Quaternary: 0
 - Name: 'PhAc'
   Formula: ['C8', 'H7', 'O']
   Mass: 119.04968984518
   HDX: 0
+  Quaternary: 0
+- Name: 'Phe'
+  Formula: ['C9', 'H10', 'N', 'O']
+  Mass: 148.07623894630
+  HDX: 2
   Quaternary: 0
 - Name: 'PhLac'
   Formula: ['C9', 'H9', 'O2']
